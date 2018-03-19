@@ -11,8 +11,21 @@ describe('specialisation-frontend App', () => {
     });
   });
 
-  it('should match the screenshot for page-1', () => {
+  it('should match the screenshot for page1', () => {
     browser.get('/page1');
+    browser.sleep(2000);
     expect(browser.protractorImageComparison.checkScreen('page1')).toEqual(0);
+  });
+  it('should match the screenshot for page2', () => {
+    browser.get('/page2');
+    browser.sleep(5000);
+    expect(browser.protractorImageComparison.checkScreen('page2'))
+      .toEqual(0);
+  });
+  it('should match the screenshot for page3', () => {
+    browser.get('/page3');
+    browser.sleep(5000);
+    expect(browser.protractorImageComparison.checkScreen('page3'))
+      .toEqual(0);
   });
 });
