@@ -1,14 +1,18 @@
 import { AppPage } from './app.po';
+import {browser} from 'protractor';
+import * as protractorImageComparison from 'protractor-image-comparison';
+import {Page1Component} from '../src/app/app-pset-htmlandcss/page1/page1.component';
 
 describe('specialisation-frontend App', () => {
-  let page: AppPage;
-
   beforeEach(() => {
-    page = new AppPage();
+    browser.protractorImageComparison = new protractorImageComparison({
+      baselineFolder: './baseline/',
+      screenshotPath: './.tmp/'
+    });
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+  it('should match the screenshot for page-1', () => {
+    browser.get('/page1');
+    expect(browser.protractorImageComparison.checkScreen('page1')).toEqual(0);
   });
 });

@@ -1,0 +1,6 @@
+div.wrapper {
+  overflow: auto;
+  color: white;
+  background-color: royalblue;
+  border: 5px dashed black;
+}
