@@ -18,14 +18,24 @@ export const wordStats = {
   occurrencesList: (text): any => {
     // create an array to add object with the words and their occurances 
     // TODO: Create new prototype function to the Array. 
+    // QUESTION: Where to add this function? prototype of Array, or where_
     let occurancesArray = []
     let wordArray = this.getWords(text);
     for (let checkWord of wordArray) {
-      // check if it's present
-      // increment if present -> break
-      // add if not present
+        checkAndAdd(checkWord);
     }
-    return (occurancesArray);
+    function checkAndAdd(checkWord) {
+      let foundAndIncremented = occurancesArray.some(function (el) {
+          if (el.term === checkWord) {
+              el.count++;
+              return true;
+          }
+      });
+      if (!foundAndIncremented){
+          occurancesArray.push({term: checkWord, count: 1})
+      }
+    }
+    return occurancesArray;
   },
   getWords: (text): any => {
     let realWordArray = new Array();
@@ -46,22 +56,3 @@ export const wordStats = {
     return realWordArray;
   }
 };
-
-// from https://stackoverflow.com/questions/1988349/array-push-if-does-not-exist
-// check if an element exists in array using a comparer function
-// comparer : function(currentElement)
-Array.prototype.inArray = function(comparer) { 
-  comparer.toLowerCase()
-  for(var i=0; i < this.length; i++) { 
-      if(comparer(this[i])) return true;  // QUESTIONS: What Syntax is this
-  }
-  return false; 
-}; 
-
-// adds an element to the array if it does not already exist using a comparer 
-// function
-Array.prototype.pushIfNotExist = function(element, comparer) { 
-  if (!this.inArray(comparer)) {
-      this.push(element);
-  }
-}; 
