@@ -1,4 +1,4 @@
-export function dateDiff( first , second ) {
+export function datediff( first , second ) {
 
   //Get 1 day in milliseconds
 
@@ -36,7 +36,7 @@ export function dateDiff( first , second ) {
 
   }  
 
-  return days;
+  return Math.abs(days);
 
 
 }
