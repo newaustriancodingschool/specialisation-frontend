@@ -4,17 +4,9 @@ const wordStats = {
       return words.length;
     },
     occurrences: (word, text): number => {
-      let wordArray = this.getWords(text);
-      let counter = 0;
-      for (let checkWord of wordArray) {
-        if (checkWord == word)
-          counter ++
-      }
       return 0;
     },
     occurrencesList: (text): any => {
-      // create an object with the words and their occurances in the text. 
-      let occurancesObject = {}
     },
     getWords: (text): any => {
       let realWordArray = new Array();
@@ -35,6 +27,5 @@ const wordStats = {
       return realWordArray;
     }
   };
-  
-  console.log(wordStats.occurrences('hello', 'hello world, hello alex, hello, nour.'))
-  
+
+  console.log(wordStats.countWords('hello world'));
