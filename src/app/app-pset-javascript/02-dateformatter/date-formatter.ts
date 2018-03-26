@@ -1,7 +1,5 @@
 export function dateFormatter(date, country) {
 
-
-
     switch(country) { 
       case "at": 
       { 
