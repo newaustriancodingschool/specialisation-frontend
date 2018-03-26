@@ -1,4 +1,5 @@
 export function helloWorld() {
-  return '';
+ var text =  'Hello World'
+  return text;
 }
 
