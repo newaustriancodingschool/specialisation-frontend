@@ -23,6 +23,6 @@ describe('04 - Currency Formatter', () => {
     expect(() => currencyFormatter('1', 'EUR', 'at')).toThrow();
   });
   it('should not fail on wrong letter case', () => {
-    expect(currencyFormatter(1, 'eur', 'AT')).toEqual('€ 1,00');
+    expect(currencyFormatter(1, 'eur', 'AT')).toEqual('€ 1.00');
   });
 });

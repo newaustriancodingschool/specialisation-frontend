@@ -9,7 +9,6 @@ describe('specialisation-frontend App', () => {
       baselineFolder: './baseline/',
       screenshotPath: './.tmp/'
     });
-    browser.driver.manage().window().setSize(1024, 741);
   });
 
   it('should match the screenshot for page1', () => {

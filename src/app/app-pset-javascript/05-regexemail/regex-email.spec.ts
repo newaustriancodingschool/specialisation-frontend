@@ -14,7 +14,7 @@ describe('05 - Regex EMail', () => {
     expect(isValidEMail('somebody@somewhere')).toBe(false);
   });
   it('should allow escaped spaces', () => {
-    expect(isValidEMail('peter\\ heinz@somewhere.com')).toBeTruthy();
+    expect(isValidEMail('peter\ heinz@somewhere')).toBeTruthy();
   });
   it('should not allow urls', () => {
     expect(isValidEMail('www.somebody.com')).toBe(false);

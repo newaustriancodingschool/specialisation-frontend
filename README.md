@@ -5,7 +5,7 @@ This project provides the template for the specialisation in frontend technologi
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## 1 . Installation
-Make sure you have a working installation of NodeJs 8.x. After cloning this project via git, you have to download the dependencies by running:
+Make sure you have a working installation of NodeJs 8.x. After cloning this project via git, you to download the dependencies by running:
 
 `npm install`
 
