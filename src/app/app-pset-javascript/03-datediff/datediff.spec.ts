@@ -31,4 +31,16 @@ describe('03 - Date Difference in Days', () => {
 
     expect(datediff(first, second)).toBe(1);
   });
+  it('should calculate exactly January', () => {
+    const first = new Date(2017, 0, 1);
+    const second = new Date(2017, 1, 1);
+
+    expect(datediff(first, second)).toBe(31);
+  });
+  it('should calculate a leap year', () => {
+    const first = new Date(2016, 0, 1);
+    const second = new Date(2017, 0, 1);
+
+    expect(datediff(first, second)).toBe(366);
+  });
 });
