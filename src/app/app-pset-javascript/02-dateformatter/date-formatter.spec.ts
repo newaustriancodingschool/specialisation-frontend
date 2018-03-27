@@ -4,7 +4,7 @@ describe('02 - Date Formatter', () => {
   it('should format a date in German/Austrian style', () => {
     const date = new Date(2017, 1, 1);
     date.setHours(12, 5);
-
+    
     expect(dateFormatter(date, 'at')).toEqual('01.02.2017 12:05');
   });
   it('should format a date in UK style', () => {

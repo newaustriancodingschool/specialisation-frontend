@@ -12,4 +12,4 @@ export function datediff(first, second): number {
   else {
     return 0;
   }
-}
+

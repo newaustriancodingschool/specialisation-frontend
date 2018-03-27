@@ -1,3 +1,5 @@
+import { error } from "protractor";
+
 export function currencyFormatter(amount, currency = 'EUR', country = 'at'): string {
   currency = currency.toUpperCase();
   country = country.toLowerCase();
@@ -17,4 +19,4 @@ export function currencyFormatter(amount, currency = 'EUR', country = 'at'): str
   if (currency == 'GBP' && country == 'at') {
     return '£' + ' ' + amount.toLocaleString('en-UK', {minimumFractionDigits: 2, maximumFractionDigits: 2});
   }
-}
+
