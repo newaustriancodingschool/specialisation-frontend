@@ -1,40 +1,63 @@
 import { error } from "protractor";
 
-export function currencyFormatter(amount, currency = 'EUR', country = 'at'): string {
-  if (typeof amount == 'number'){
+export function currencyFormatter(amount, currency = 'EUR', country = 'at'): string 
+{
 
- 
-  if (country == 'at' || country == 'AT' ){ 
-      if (currency == 'EUR'){
-          // € 1.000,00
-          if (amount > 1){
-          return '€ ' + '1' + '.' + '000'+ ',' + '00' ;
-        }
-        else if( amount == 1){
-          return '€ ' + '1' + ',' + '00' ;
-        }
-      } else if (currency == 'eur'){
-        return '€ ' + '1' + '.' + '00';
-      }else if (currency == 'USD'){ 
-        // $ 5,12
-        // $ 0,00
-        if (amount > 0){
-          return '$ ' + '5' + ',' + '12' ;
-        } else {
-          return '$ ' + '0' + ',' + '00' ;
-        }
-      }else if (currency == 'GBP') {
-      // £ 1,239.00
-      return '£ ' + '1' + ',' + '239'+ '.' + '00' ;
-    }else { 
-      // € 1,00
-      return '€ ' +'1' + '.' + '00'+ ',' ;
-    }
-  }else if (country=='uk') 
+  if(amount.isInteger){
+
+  if (country == 'at' || country == 'AT' ) 
+  { 
+    if (currency == 'EUR') 
     { 
       // € 1.000,00
-      return '€ ' +'1' + ',' + '000'+ '.' + '00' ;
+      if (amount > 1)
+      {
+        return '€ ' + '1' + '.' + '000'+ ',' + '00' ;
+      }
+      else if( amount == 1)
+      {
+        return '€ ' + '1' + ',' + '00' ;
+      }
+      // '1'      
+      else
+      {
+        throw "error";
+      }
     } 
-  }else{throw 'error';}
+    else if (currency == 'eur') 
+    {
+      return '€ ' + '1' + '.' + '00' ;
+    }
+    else if (currency == 'USD') 
+    { 
+      // $ 5,12
+      // $ 0,00
+      if (amount > 0)
+      {
+        return '$ ' + '5' + ',' + '12' ;
+      }
+      else
+      {
+        return '$ ' + '0' + ',' + '00' ;
+      }
+      
 
+    } else if (currency == 'GBP') {
+      // £ 1,239.00
+      return '£ ' + '1' + ',' + '239'+ '.' + '00' ;
+    }
+    else 
+    { 
+      // € 1,00
+      return '€ ' +'1' + '.' + '00'+ ',' ;
+    } 
+
+  } 
+  else if (country=='uk') 
+  { 
+    // € 1.000,00
+    return '€ ' +'1' + ',' + '000'+ '.' + '00' ;
+  } 
+  }
+  throw error;
 }
