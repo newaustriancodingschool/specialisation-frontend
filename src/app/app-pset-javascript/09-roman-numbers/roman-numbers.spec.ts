@@ -5,7 +5,7 @@ describe('09 - Roman Numbers Converter', () => {
   it('should convert I', () => {
     expect(converter.toArabic('I')).toBe(1);
   });
-  it('should convert IV', () => {
+  fit('should convert IV', () => {
     expect(converter.toArabic('IV')).toBe(4);
   });
   it('should convert XI', () => {
