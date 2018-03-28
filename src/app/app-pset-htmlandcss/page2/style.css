@@ -9,8 +9,9 @@
     padding-bottom:20px !important;
     padding-left:0px !important;
     border: 2px solid black;
-    background-image: url(photo.jpg) ;
+    background-image: url(photo3.jpg) ;
     background-position: center;
+
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     width: 800px;
@@ -19,7 +20,7 @@
   
   
   .bg-cover {
-    background-size: 800px 400px;
+    background-size: cover;
     color: white;
     background-position: center center;
     position: relative;
@@ -28,7 +29,7 @@
   
   .overlay {
     background-color: #fff;
-    opacity: 0.8;
+    opacity: 0.7;
     position: absolute;
     top: 0;
     left: 0;
