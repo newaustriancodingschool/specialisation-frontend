@@ -1,4 +1,4 @@
-/*import { text } from "@angular/core";
+//import { text } from "@angular/core";
 
 export const wordStats = {
   countWords: (text): number => {
@@ -8,15 +8,20 @@ export const wordStats = {
   var sentence = "I write this text, where I don\'t use lower cases for I";
   var count = (sentence.match(/I/g) || []).length;
   return count;
-  }
- 
-    var arr = [];
-    arr =  text.split(" ");
-    var occurrencesarr = { };
- occurrencesList: (text): any => {};
-    for (var i = 0, j = arr.length; i < j; i++) {
-      occurrencesarr[arr[i]] = (occurrencesarr[arr[i]] || 0) + 1;
+  },
+  occurrencesList: (text): any => {
+    let sentence = [] ;
+    sentence = text.split(" ");
+  
+    let counterwords = [];
+    //var countnum;
+    //var currentword;
+  
+    sentence.sort();
+    var sentlength = sentence.length ;
+    for (var i=0 ; i< sentlength ; i++ ){
+      counterwords[sentence[i]] = (counterwords[counterwords[i]] || 0) + 1;
     }
-    return occurrencesarr;
-  }   
-};*/
+    console.log(counterwords);
+  }
+};
