@@ -64,26 +64,4 @@ export class T3Board {
         }   
   }
 
-
-
-  compare(): any 
-  { 
-      if(status.toString() == this.status1.toString())
-      {
-        return "s1";
-      } 
-      else if (status.toString() == this.status2.toString())
-      {
-        return "s2";
-      }
-      else if (status.toString() == this.status3.toString())
-      {
-        return "s3";
-      }
-      else
-      {
-        return " ";
-      }
-  } 
-
 }
