@@ -33,7 +33,7 @@ export function currencyFormatter(amount, currency = 'EUR', country = 'at'): str
       if (currency=="EUR" || currency=="eur")
         if (amount==1)
         {
-          var NewAmount = "€ " + 1 + "." + "00";
+          var NewAmount = "€ " + 1 + "," + "00";
           return NewAmount;
         }     
     } 

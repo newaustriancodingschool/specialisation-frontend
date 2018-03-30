@@ -33,6 +33,7 @@ describe('07 - Date Serialser and Deserialiser to send and ' +
       birthday: new Date(1797, 0, 31),
       deathday: new Date(1828, 10, 19)
     };
+
     const json = '{"firstname":"Franz","lastname":"Schubert",' +
       '"birthday":"1797-01-31","deathday":-4454010000000}';
 

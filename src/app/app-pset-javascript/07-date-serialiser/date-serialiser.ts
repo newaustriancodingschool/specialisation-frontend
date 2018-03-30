@@ -1,9 +1,11 @@
 export const dateSerialiser = {
   serialise: function(anObject, type): string {
+
     if(type == "UTC")
     {
       anObject.birthday = anObject.birthday.getTime();
       anObject.deathday = anObject.deathday.getTime();
+
 
       let myJSON = JSON.stringify(anObject);
       return myJSON;
@@ -13,6 +15,7 @@ export const dateSerialiser = {
       //anObject.birthday = new Date(anObject.birthday);
       //let Newbirthday = anObject.birthday.getFullYear() + "-" + anObject.birthday.getMonth() + "-" + anObject.birthday.getDate(); 
       //anObject.deathday = anObject.deathday.getTime();
+      
       
       anObject.birthday = new Date(anObject.birthday);
       let Newbirthday = anObject.birthday.getFullYear() + "-" + 
@@ -38,20 +41,22 @@ export const dateSerialiser = {
   },
   deserialise: function(json): any {
 
-    let myJSON = JSON.parse(json);
-    // if the date integer that means , it is value of UTC. and if it is a string sequence , that means ISO
-    //iso
-    if(myJSON.birthday.getDate()!=0)
-      myJSON.birthday = new Date(myJSON.birthday);
+    // let str = JSON.stringify(json);
+    const r = JSON.parse(json);
+    
+         
+    r.birthday = new Date(r.birthday);
+    r.birthday.setHour(0);
+       
+    r.deathday = new Date(r.deathday);
+    r.deathday.setHour(0);
 
       //utc
-    if(myJSON.deathday.getDate()!=0) 
-      myJSON.deathday = new Date(myJSON.deathday);
 
       //let JSON1 = JSON.stringify(anObject);
       //myJSON    = JSON.parse(JSON1);
 
-      return myJSON;
+      return r;
       
 
   }

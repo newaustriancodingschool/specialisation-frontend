@@ -6,7 +6,7 @@ export function isValidEMail(email): boolean {
     return true;
   else if (email.includes("+"))
     return true;  
- else if(email.includes("\ ") && (!regular_expression_to_validate_email.test(email))) 
+ else if(email.includes("\\") && (regular_expression_to_validate_email.test(email))) 
     return true; 
   else if(!regular_expression_to_validate_email.test(email)) 
     return false;    
