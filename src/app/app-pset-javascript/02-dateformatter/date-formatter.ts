@@ -1,20 +1,50 @@
 export function dateFormatter(date, country) {
 
+    // Day
+    let day = ('0' + date.getDate()).slice(-2);
+    // Month
+    let month = date.getMonth();
+    month = ('0' + (month)).slice(-2);
+    // Year
+    let year = date.getFullYear();
+    // Hours
+    let hours = date.getHours();
+    // Minutes
+    let minutes = ('0' + (date.getMinutes())).slice(-2);
+
+    // all informations in a Array to send to the functions
+    let DateInfo = { "day":day,"month":month,"year":year,"hours":hours,"minutes":minutes };
+
+      // a variable contains the period time
+    let ampm = DateInfo['hours'] >= 12 ? 'p.m.' : 'a.m.';
+
     switch(country) { 
       case "at": 
       { 
         // 01.02.2017 12:05 
-        return createDateAt(date,".");
+        return createDateAt(DateInfo,".");
       } 
       case  "uk": 
       { 
         // 01/02/2017 03:12 p.m.
-        return createDateUk(date,"/");
+        // Month (We should to add 1 month )
+        month = date.getMonth()+1;
+        month = ('0' + (month)).slice(-2)
+
+        DateInfo["month"] = month;
+
+        return createDateUk(DateInfo,ampm,"/");
       } 
       case  "us": 
       { 
         // 05/30/2017 06:45 a.m.
-        return createDateUS(date,"/"); 
+        // Month (We should to add 1 month )
+        month = date.getMonth() + 1;
+        month = ('0' + (month)).slice(-2);
+
+        DateInfo["month"] = month;
+
+        return createDateUS(DateInfo,ampm,"/"); 
       }
       case  "de": 
       { 
@@ -30,86 +60,50 @@ export function dateFormatter(date, country) {
 
 }
 
-export function createDateAt(date,symbol)
-{
-  // Day
-  var day = ('0' + date.getDate()).slice(-2);
-  // Month
-  var month = date.getMonth();
-  month = ('0' + (month)).slice(-2);
-  // Year
-  var year = date.getFullYear();
-  // Hours
-  var hours = date.getHours();
-  // Minutes
-  var minutes = ('0' + (date.getMinutes())).slice(-2);
+export function createDateAt(DateInfo,symbol)
+{ 
 
   // Convert the Date to AT form 
-  var NewDate = day   + symbol +
-                month + symbol +
-                year  + " "    + 
-                hours + ":"    + minutes;
+  var NewDate = DateInfo["day"]   + symbol +
+                DateInfo["month"] + symbol +
+                DateInfo["year"]  + " "    + 
+                DateInfo["hours"] + ":"    + DateInfo["minutes"];
 
   return NewDate;
 }
 
 
-export function createDateUk(date,symbol)
+export function createDateUk(DateInfo,ampm,symbol)
 {
-  // Day
-  var day = ('0' + date.getDate()).slice(-2);
-  // Month (We should to add 1 month )
-  var month = date.getMonth() + 1;
-  month = ('0' + (month)).slice(-2);
-  // Year
-  var year = date.getFullYear() ;
-  // Minutes
-  var minutes = ('0' + (date.getMinutes())).slice(-2);
-  // Hours
-  var hours = date.getHours() ;
-  // a variable contains the period time
-  var ampm = hours >= 12 ? 'p.m.' : 'a.m.';
+  
   // convert the time system from 24 to 12 
-  hours = hours - 12;
+  DateInfo['hours'] = DateInfo['hours'] - 12;
   // Hours after modification
-  hours = ('0' + hours).slice(-2) ;
+  DateInfo['hours'] = ('0' + DateInfo['hours']).slice(-2) ;
 
   // Convert the Date to UK form 
-  var NewDate =  day     + symbol +
-                 month   + symbol + 
-                 year    + " "    + 
-                 hours   + ":"    + 
-                 minutes + " "    + ampm;
+  var NewDate =  DateInfo['day']     + symbol +
+                 DateInfo['month']   + symbol + 
+                 DateInfo['year']    + " "    + 
+                 DateInfo['hours']   + ":"    + 
+                 DateInfo['minutes'] + " "    + ampm;
 
   return NewDate;
 }
 
 // 05/30/2017 06:45 a.m.
-export function createDateUS(date,symbol)
+export function createDateUS(DateInfo,ampm,symbol)
 {
-  // Day
-  var day = ('0' + date.getDate()).slice(-2);
-  // Month (We should to add 1 month )
-  var month = date.getMonth() + 1;
-  month = ('0' + (month)).slice(-2);
-  // Year
-  var year = date.getFullYear() ;
-  // Minutes
-  var minutes = ('0' + (date.getMinutes())).slice(-2);
-  // Hours
-  var hours = date.getHours() ;
-  // a variable contains the period time
-  var ampm = hours >= 12 ? 'p.m.' : 'a.m.';
-
+  
   // Hours after modification
-  hours = ('0' + hours).slice(-2) ;
+  DateInfo['hours'] = ('0' + DateInfo['hours']).slice(-2) ;
 
   // Convert the Date to UK form 
-  var NewDate =  month   + symbol + 
-                 day     + symbol + 
-                 year    + " "    + 
-                 hours   + ":"    + 
-                minutes  + " " + ampm;
+  var NewDate = DateInfo['month']   + symbol + 
+                DateInfo['day']     + symbol + 
+                DateInfo['year']    + " "    + 
+                DateInfo['hours']   + ":"    + 
+                DateInfo['minutes']  + " " + ampm;
 
   return NewDate;
 }
