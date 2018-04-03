@@ -1,6 +1,6 @@
 import {wordStats} from './word-stats';
 
-describe('06 - Word Stats Spec', () => {
+fdescribe('06 - Word Stats Spec', () => {
   it('should count words on an easy text', () => {
     const text = 'this is a test.\ni hope that it works. :)';
     expect(wordStats.countWords(text)).toBe(9);
@@ -14,7 +14,7 @@ describe('06 - Word Stats Spec', () => {
     expect(wordStats.occurrencesList(text)).toEqual([
       {term: 'rose', count: 4},
       {term: 'a', count: 3},
-      {term: 'is', count: 3}
+      {term: 'is', count: 22}
     ]);
   });
 });
