@@ -1,6 +1,6 @@
 import {wordStats} from './word-stats';
 
-fdescribe('06 - Word Stats Spec', () => {
+describe('06 - Word Stats Spec', () => {
   it('should count words on an easy text', () => {
     const text = 'this is a test.\ni hope that it works. :)';
     expect(wordStats.countWords(text)).toBe(9);
