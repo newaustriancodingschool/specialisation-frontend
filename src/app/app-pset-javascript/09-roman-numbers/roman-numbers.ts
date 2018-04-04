@@ -1,8 +1,8 @@
 export const converter = {
-  toArabic: function(roman): number {
+  toArabic: function(roman: string): number {
     return 0;
   },
-  toRoman: function(arabic): string {
+  toRoman: function(arabic: number): string {
     return '';
   }
-}
+};

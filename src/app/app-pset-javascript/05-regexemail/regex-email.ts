@@ -1,3 +1,3 @@
-export function isValidEMail(email): boolean {
-  return null;
+export function isValidEMail(email: string): boolean {
+  return true;
 }

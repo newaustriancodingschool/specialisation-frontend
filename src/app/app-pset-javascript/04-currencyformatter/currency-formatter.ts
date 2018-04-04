@@ -1,3 +1,3 @@
-export function currencyFormatter(amount, currency = 'EUR', country = 'at'): string {
+export function currencyFormatter(amount: number | string, currency = 'EUR', country = 'at'): string {
   return '';
 }

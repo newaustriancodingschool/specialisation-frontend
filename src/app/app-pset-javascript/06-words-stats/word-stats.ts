@@ -1,10 +1,10 @@
 export const wordStats = {
-  countWords: (text): number => {
+  countWords: (text: string): number => {
     return 0;
   },
-  occurrences: (word, text): number => {
+  occurrences: (word: string, text: string): number => {
     return 0;
   },
-  occurrencesList: (text): any => {
+  occurrencesList: (text: string): any => {
   }
 };
