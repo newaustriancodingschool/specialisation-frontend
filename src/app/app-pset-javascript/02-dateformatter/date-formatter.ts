@@ -1,10 +1,10 @@
-export function dateFormatter(date, country) {
-
+ export function dateFormatter(date:Date, country:any) 
+{
     // Day
     let day = ('0' + date.getDate()).slice(-2);
     // Month
-    let month = date.getMonth();
-    month = ('0' + (month)).slice(-2);
+    let month:number = date.getMonth();
+    month = Number(('0' + (month)).slice(-2));
     // Year
     let year = date.getFullYear();
     // Hours
@@ -18,7 +18,8 @@ export function dateFormatter(date, country) {
       // a variable contains the period time
     let ampm = DateInfo['hours'] >= 12 ? 'p.m.' : 'a.m.';
 
-    switch(country) { 
+    switch(country) 
+    { 
       case "at": 
       { 
         // 01.02.2017 12:05 
@@ -29,7 +30,7 @@ export function dateFormatter(date, country) {
         // 01/02/2017 03:12 p.m.
         // Month (We should to add 1 month )
         month = date.getMonth()+1;
-        month = ('0' + (month)).slice(-2)
+        month = Number(('0' + (month)).slice(-2));
 
         DateInfo["month"] = month;
 
@@ -40,7 +41,7 @@ export function dateFormatter(date, country) {
         // 05/30/2017 06:45 a.m.
         // Month (We should to add 1 month )
         month = date.getMonth() + 1;
-        month = ('0' + (month)).slice(-2);
+        month = Number(('0' + (month)).slice(-2));
 
         DateInfo["month"] = month;
 
@@ -50,17 +51,21 @@ export function dateFormatter(date, country) {
       { 
         // specific country
         throw "Error";
-        //return "Error";
       }
       default: 
       { 
         return "Error";
       } 
-  } 
+    }
+  }// End dateFormatter function
 
-}
 
-export function createDateAt(DateInfo,symbol)
+// export function dateFormatter(date: Date, country: string): string 
+// {
+//   return '';
+// }
+
+export function createDateAt(DateInfo:any,symbol:string)
 { 
 
   // Convert the Date to AT form 
@@ -73,7 +78,7 @@ export function createDateAt(DateInfo,symbol)
 }
 
 
-export function createDateUk(DateInfo,ampm,symbol)
+export function createDateUk(DateInfo:any,ampm:string,symbol:string)
 {
   
   // convert the time system from 24 to 12 
@@ -92,7 +97,7 @@ export function createDateUk(DateInfo,ampm,symbol)
 }
 
 // 05/30/2017 06:45 a.m.
-export function createDateUS(DateInfo,ampm,symbol)
+export function createDateUS(DateInfo:any,ampm:string,symbol:string)
 {
   
   // Hours after modification

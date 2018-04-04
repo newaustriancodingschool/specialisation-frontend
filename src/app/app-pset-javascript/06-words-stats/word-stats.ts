@@ -1,11 +1,11 @@
 export const wordStats = {
-  countWords: (text): number => {
+  countWords: (text:string): number => {
     return getWordCount(text);
   },
-  occurrences: (word, text): number => {
+  occurrences: (word:string, text:string): number => {
     return text.split("i").length;
   },
-  occurrencesList: (text): any => {
+  occurrencesList: (text:string): any => {
 
     let text2 = '';
     let arr_test = [];
@@ -53,15 +53,15 @@ export const wordStats = {
    }
 };
 
-export function getWordCount(t)
+export function getWordCount(t:any)
 {
     var regEx = /([^\u0000-\u007F]|\w)+/g;  
     return t.match(regEx).length;
 }
 
 
-function count(string,char) {
+function count(s:any,char:string) {
   var re = new RegExp(char,"gi");
-  return string.match(re).length;
+  return s.match(re).length;
  }
 

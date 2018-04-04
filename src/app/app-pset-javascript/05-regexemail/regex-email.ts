@@ -1,4 +1,4 @@
-export function isValidEMail(email): boolean {
+export function isValidEMail(email:string): boolean {
 
   var regular_expression_to_validate_email = /\S+@\S+\.\S+/;
 

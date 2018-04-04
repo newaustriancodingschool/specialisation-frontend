@@ -1,7 +1,10 @@
-export class SportsStats {
-  people;
+import { Data } from "@angular/router";
 
-  constructor(csv) {
+
+export class SportsStats {
+  people:any;
+
+  constructor(csv:any) {
     this.people = sportsParser.parseCsv(csv);
   }
 
@@ -16,15 +19,15 @@ export class SportsStats {
 
   getYoungest(discipline = 'all') {
     return this.people
-      .filter(person => discipline === 'all' || person.discipline === discipline)
-      .sort((a, b) => a.birthday.getTime() > b.birthday.getTime())
-      .map(person => person.firstname + ' ' + person.lastname)
+      .filter(person:Person => discipline === 'all' || person.discipline === discipline)
+      .sort((a:string, b:string) => a.birthday.getTime() > b.birthday.getTime())
+      .map(person:Person => person.firstname + ' ' + person.lastname)
       .pop();
   }
 
   getStatesOccurrences() {
     const occurrences = {};
-    this.people.forEach(person => {
+    this.people.forEach(person:Person => {
       if (occurrences[person.state]) {
         occurrences[person.state] += 1;
       } else {
@@ -45,39 +48,42 @@ export class SportsStats {
 }
 
 const sportsParser = {
-  parseCsv: function(lines) {
+  parseCsv: function(lines:string) {
     return lines.split('\n').map(sportsParser.parseCsvLine);
   },
 
-  parseCsvLine: function(line) {
+  parseCsvLine: function(line:string) {
     const [firstname, lastname, state, discipline, birthdayStr] = line
       .split(',').map(sportsParser.cleanWord);
-    const [, year, month, day] = birthdayStr
+    const [, year, month, day]:any = birthdayStr
       .match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
-    const birthday = new Date(year, month - 1, day);
+    const birthday:Data = new Date(year, month - 1, day);
     return new Person(firstname, lastname, state, discipline, birthday);
   },
 
-  cleanWord: function(word) {
+  cleanWord: function(word:string) {
     return word
       .trim()
       .replace(/^\w/, char => char.toUpperCase());
   }
 };
 
+export class Person 
+{
+  firstname:string;
+  lastname:string;
+  state:string;
+  discipline:string;
+  birthday:Data;
 
-export class Person {
-  firstname;
-  lastname;
-  state;
-  discipline;
-  birthday;
+    constructor(firstname:string, lastname:string, state:string, category:string, birthday:Data) 
+    {
+      this.firstname = firstname;
+      this.lastname = lastname;
+      this.state = state;
+      this.discipline = category;
+      this.birthday = birthday;
+    }
 
-  constructor(firstname, lastname, state, category, birthday) {
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.state = state;
-    this.discipline = category;
-    this.birthday = birthday;
-  }
+
 }

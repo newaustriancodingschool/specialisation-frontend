@@ -1,11 +1,11 @@
 
 export class T3Board {
 
-  board;
+  board:any;
   counter:number;
-  result;
+  result:any;
 
-  constructor(data) 
+  constructor(data:any) 
   {
       this.board = data;
       this.counter = 0;
@@ -13,7 +13,7 @@ export class T3Board {
 
   getStatus(): any 
   {
-        let result ;
+        let result:any ;
         let counter = 0; 
         let success = 0;
         let check_input_equal_null = 0;

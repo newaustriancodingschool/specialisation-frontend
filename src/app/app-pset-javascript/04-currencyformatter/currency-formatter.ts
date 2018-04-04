@@ -1,4 +1,4 @@
-export function currencyFormatter(amount, currency = 'EUR', country = 'at'): string {
+export function currencyFormatter(amount:any, currency = 'EUR', country = 'at'): string {
 
   if(typeof(amount)=="string")
   {
@@ -64,7 +64,7 @@ export function currencyFormatter(amount, currency = 'EUR', country = 'at'): str
 
 
 
-export function createMoneyFormAt(amount)
+export function createMoneyFormAt(amount:any)
 {
   if (amount==1)
   {
@@ -75,13 +75,13 @@ export function createMoneyFormAt(amount)
   return NewAmount;
 }
 
-export function createMoneyFormUk(amount)
+export function createMoneyFormUk(amount:any)
 {
   var NewAmount = "€ " + (amount / 1000) + "," + "000" + "." + "00"; 
   return NewAmount;
 }
 
-export function createMoneyFormUs(amount)
+export function createMoneyFormUs(amount:any)
 {
   if (amount==0)
   {
@@ -103,7 +103,7 @@ export function createMoneyFormUs(amount)
   return NewAmount;
 }
 
-export function createMoneyFormUk2(amount)
+export function createMoneyFormUk2(amount:any)
 {
   var factor = Math.pow(10, 2);
   var tempNumber = amount * factor;
