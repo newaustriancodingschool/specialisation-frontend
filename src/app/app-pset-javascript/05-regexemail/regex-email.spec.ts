@@ -1,6 +1,6 @@
 import {isValidEMail} from './regex-email';
 
-describe('05 - Regex EMail', () => {
+fdescribe('05 - Regex EMail', () => {
   it('should validate a normal email', () => {
     expect(isValidEMail('somebody@somewhere.com')).toBeTruthy();
   });
