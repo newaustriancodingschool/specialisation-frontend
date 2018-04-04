@@ -4,13 +4,13 @@ export const dateSerialiser = {
       anObject.birthday = anObject.birthday.getTime();
       anObject.deathday = anObject.birthday.getTime();
     } else if (type === 'ISO'){
-      anObject.birthday = anObject.birthday.toISOString().match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
-      anObject.deathday = anObject.birthday.getTime();
+      anObject.birthday = anObject.birthday.toISOString().slice(0,10);
+      anObject.deathday = anObject.deathday.toISOString().slice(0,10);
 
     }
     return JSON.stringify(anObject);
   },
   deserialise: function(json): any {
-
+    return JSON.stringify(json)
   }
 };

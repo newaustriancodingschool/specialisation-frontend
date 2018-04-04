@@ -35,9 +35,5 @@ export function datediff( first , second ) {
   	if (first.getDay() != second.getDay() ) days++;
 
   }  
-
   return Math.abs(days);
-
-
 }
-
