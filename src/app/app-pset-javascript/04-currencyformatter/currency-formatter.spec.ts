@@ -11,7 +11,7 @@ describe('04 - Currency Formatter', () => {
     expect(currencyFormatter(5.123, 'USD', 'at')).toEqual('$ 5,12');
   });
   it('should round properly in Sterling/UK', () => {
-    expect(currencyFormatter(1238.999, 'GBP', 'at')).toEqual('£ 1,239.00');
+    expect(currencyFormatter(1238.999, 'GBP', 'at')).toEqual('£ 1.239,00');
   });
   it('should display zero correctly', () => {
     expect(currencyFormatter(0, 'USD', 'at')).toEqual(('$ 0,00'));
