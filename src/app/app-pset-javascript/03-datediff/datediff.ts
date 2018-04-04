@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export function datediff( first , second ) {
 
   //Get 1 day in milliseconds
@@ -36,4 +37,12 @@ export function datediff( first , second ) {
 
   }  
   return Math.abs(days);
+=======
+import * as moment from 'moment';
+
+export function datediff(first: Date, second: Date): number {
+  const firstMoment = moment(first).startOf('day');
+  const secondMoment = moment(second).startOf('day');
+  return Math.abs(firstMoment.diff(secondMoment, 'days', true));
+>>>>>>> eb9e0dba3bb8d8a5557d0871598b009c60e2ef1d
 }

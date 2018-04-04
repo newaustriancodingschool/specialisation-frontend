@@ -1,6 +1,5 @@
-import { error } from "protractor";
-
 export function currencyFormatter(amount, currency = 'EUR', country = 'at'): string {
+<<<<<<< HEAD
     
     currency = currency.toUpperCase();
     country = country.toLowerCase(); 
@@ -27,3 +26,7 @@ export function currencyFormatter(amount, currency = 'EUR', country = 'at'): str
   }
 
 
+=======
+  return '';
+}
+>>>>>>> eb9e0dba3bb8d8a5557d0871598b009c60e2ef1d
