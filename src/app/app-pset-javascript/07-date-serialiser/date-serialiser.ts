@@ -1,3 +1,15 @@
+interface Composer {
+  firstname: string;
+  lastname: string;
+  birthday: Date;
+  deathday: Date;
+}
+
+export enum DateType {
+  ISO,
+  UTC
+}
+
 export const dateSerialiser = {
   serialise: function(anObject, type): string {
     if ( type === 'UTC' ) {

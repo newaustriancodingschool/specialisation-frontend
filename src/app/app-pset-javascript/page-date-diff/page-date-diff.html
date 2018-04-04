@@ -1,0 +1,15 @@
+<div class="container">
+<h1>Day Difference Calculator</h1>
+<p>Dear User, you can calculate the days between two dates.</p>
+<p>Please type in your dates into the form below.</p>
+
+<form>
+    <input type="text" name="firstDate" [(ngModel)]="data.firstDate">
+    <input type="text" name="secondDate" [(ngModel)]="data.secondDate">
+    <br>
+    <button (click)="calculate()">Calculate</button>
+</form>
+
+<div class="result">The result is {{ result }}</div>
+
+</div>

@@ -1,6 +1,5 @@
-import { error } from "protractor";
-
 export function currencyFormatter(amount, currency = 'EUR', country = 'at'): string {
+<<<<<<< HEAD
   if (typeof amount === 'number') {
     if (country === 'at' || country === 'AT' ) {
         if (currency === 'EUR') {
@@ -33,4 +32,7 @@ export function currencyFormatter(amount, currency = 'EUR', country = 'at'): str
       }
   } else { throw 'error'; }
 
+=======
+  return '';
+>>>>>>> eb9e0dba3bb8d8a5557d0871598b009c60e2ef1d
 }
