@@ -8,7 +8,7 @@ describe('05 - Regex EMail', () => {
     expect(isValidEMail('heinz peter@somewhere.com')).toBe(false);
   });
   it('should not allow +', () => {
-    expect(isValidEMail('heinz+peter@somewhere.com')).toBeTruthy();
+    expect(isValidEMail('heinz+peter@somewhere.com')).toBe(false);//.toBeTruthy();
   });
   it('should not allow missing TLD', () => {
     expect(isValidEMail('somebody@somewhere')).toBe(false);

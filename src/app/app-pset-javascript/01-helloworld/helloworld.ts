@@ -1,5 +1,5 @@
 export function helloWorld() {
- var text =  'Hello World'
+ const text =  'Hello World';
   return text;
 }
 

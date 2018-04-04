@@ -35,7 +35,6 @@ describe('07 - Date Serialser and Deserialiser to send and ' +
     };
     const json = '{"firstname":"Franz","lastname":"Schubert",' +
       '"birthday":"1797-01-31","deathday":-4454010000000}';
-
     expect(dateSerialiser.deserialise(json)).toEqual(schubert);
   });
 });
