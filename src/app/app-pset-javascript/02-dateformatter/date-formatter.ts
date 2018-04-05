@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export function dateFormatter(date, country) {
   var datestring = '';
   
@@ -29,4 +30,8 @@ export function dateFormatter(date, country) {
 
 function twoDigit(number) {
   return ("0" + number).slice(-2);
+=======
+export function dateFormatter(date: Date, country: string): string {
+  return '';
+>>>>>>> 6ad8d7869cc5422683e966b393962156e4d5b336
 }

@@ -1,6 +1,7 @@
 // I get the error that there is no function called getWords. Can I not call functions using. this.getWords()?
 
 export const wordStats = {
+<<<<<<< HEAD
   countWords: (text): number => {
     let words = wordStats.getWords(text);
     return words.length;
@@ -68,3 +69,14 @@ export const wordStats = {
         return realWordArray;
     }
 };
+=======
+  countWords: (text: string): number => {
+    return 0;
+  },
+  occurrences: (word: string, text: string): number => {
+    return 0;
+  },
+  occurrencesList: (text: string): any => {
+  }
+};
+>>>>>>> 6ad8d7869cc5422683e966b393962156e4d5b336

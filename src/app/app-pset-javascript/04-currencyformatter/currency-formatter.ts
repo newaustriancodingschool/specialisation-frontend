@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export function currencyFormatter(amount, currency = 'EUR', country = 'at'): string {
   country = country.toLowerCase();
   currency = currency.toUpperCase();
@@ -46,4 +47,8 @@ function formatCurrency(amount, delimiter, comma) {
       }
   }
   return formattedAmount;
+=======
+export function currencyFormatter(amount: number | string, currency = 'EUR', country = 'at'): string {
+  return '';
+>>>>>>> 6ad8d7869cc5422683e966b393962156e4d5b336
 }

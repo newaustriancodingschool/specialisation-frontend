@@ -1,4 +1,17 @@
+interface Composer {
+  firstname: string;
+  lastname: string;
+  birthday: Date;
+  deathday: Date;
+}
+
+export enum DateType {
+  ISO,
+  UTC
+}
+
 export const dateSerialiser = {
+<<<<<<< HEAD
   serialise: function(anObject, type): string {
       if (type === 'UTC') {
         anObject.birthday = anObject.birthday.getTime();
@@ -17,5 +30,15 @@ export const dateSerialiser = {
   },
   deserialise: function(json): any {
     return JSON.stringify(json)
+  // serialise: function(anObject: Composer, type: DateType): string {
+  //   return '';
+  // },
+  // deserialise: function(json: string): Composer {
+  //   return {
+  //     firstname: '',
+  //     lastname: '',
+  //     birthday: new Date(),
+  //     deathday: new Date()
+  //   };
   }
 };

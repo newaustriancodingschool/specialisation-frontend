@@ -1,3 +1,5 @@
+type T3BoardData = Array<Array<string | null>>;
+
 export class T3Board {
   board: Array<Array<string>> = [
   ['', '', null],
