@@ -14,7 +14,7 @@ describe('07 - Date Serialser and Deserialiser to send and ' +
       .toEqual('{"firstname":"Wolfgang Amadeus","lastname":"Mozart",' +
         '"birthday":-6750954000000,"deathday":-5619459600000}');
   });
-  it('should serialise a simple object with UTC seconds', () => {
+  it('should serialise a simple object with ISO Time', () => {
     const haydn = {
       firstname: 'Joseph',
       lastname: 'Haydn',

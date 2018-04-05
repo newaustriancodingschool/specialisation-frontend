@@ -16,14 +16,14 @@ export const converter = {
       {roman: 'IV', value: 4},
       {roman: 'I', value: 1}
     ];
-    for (let i = 0, val = 0; i < roman.length; i++) {
+    for (let romanIndex = 0, val = 0; romanIndex < roman.length; romanIndex++) {
       // if digits match, increment
       let digitLength = lookup[val].roman.length;
-      let checkDigit = roman.substr(i, digitLength);
+      let checkDigit = roman.substr(romanIndex, digitLength);
       while (checkDigit != lookup[val].roman) {
         val++;
         digitLength = lookup[val].roman.length;
-        checkDigit = roman.substr(i, digitLength);
+        checkDigit = roman.substr(romanIndex, digitLength);
       }
       arabic += lookup[val].value;
       // if none match, increment value
