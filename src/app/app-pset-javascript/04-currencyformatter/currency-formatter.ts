@@ -1,38 +1,33 @@
-export function currencyFormatter(amount, currency = 'EUR', country = 'at'): string {
-<<<<<<< HEAD
-  if (typeof amount === 'number') {
-    if (country === 'at' || country === 'AT' ) {
-        if (currency === 'EUR') {
-            // € 1.000,00
-            if (amount > 1) {
-            return '€ ' + '1' + '.' + '000' + ',' + '00' ;
-          } else if ( amount === 1){
-            return '€ ' + '1' + ',' + '00' ;
-          }
-        } else if (currency === 'eur') {
-          return '€ ' + '1' + ',' + '00';
-        } else if (currency === 'USD') {
-          // $ 5,12
-          // $ 0,00
-          if (amount > 0) {
-            return '$ ' + '5' + ',' + '12' ;
-          } else {
-            return '$ ' + '0' + ',' + '00' ;
-          }
-        } else if (currency === 'GBP') {
-        // £ 1,239.00
-        return '£ ' + '1' + ',' + '239' + '.' + '00' ;
-      } else {
-        // € 1,00
-        return '€ ' + '1' + '.' + '00' + ',' ;
-      }
-    } else if (country === 'uk') {
-        // € 1.000,00
-        return '€ ' + '1' + ',' + '000' + '.' + '00' ;
-      }
-  } else { throw 'error'; }
+import { error } from 'util';
 
-=======
-  return '';
->>>>>>> eb9e0dba3bb8d8a5557d0871598b009c60e2ef1d
+export function currencyFormatter(amount: number, currency = 'EUR', country = 'at'): string {
+  const formatCurrency = require('format-currency');
+
+  if (currency === 'EUR' || currency === 'eur') {
+    if (country === 'at') {
+      const parameters = {
+          currency: 'EUR', 			// If currency is not supplied, defaults to USD
+          symbol: '€',			// Overrides the currency's default symbol
+          decimal: ',',			// Overrides the locale's decimal character
+          group: '.',			// Overrides the locale's group character (thousand separator)
+          pattern: '#,##0.00 !'		// Overrides the locale's default display pattern
+        };
+      return OSREC.CurrencyFormatter.format(amount, parameters);
+    }
+  }
+  return ' ';
 }
+  //     return string;
+  //   } else if (country === 'uk') {
+  //     return Formatter.format(amount, { locale: 'en-US' });
+  //   } else {
+  //     throw undefined;
+  //   }
+  // } else if (currency === 'USD' || currency === 'usd') {
+  //   if (country === 'at') {
+  //     return Formatter(amount).format('$ 0,0');
+  //   }
+  // } else {
+  //   throw undefined;
+  // }
+
