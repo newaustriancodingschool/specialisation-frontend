@@ -1,33 +1,29 @@
 import { error } from 'util';
 
 export function currencyFormatter(amount: number, currency = 'EUR', country = 'at'): string {
-  const formatCurrency = require('format-currency');
-
-  if (currency === 'EUR' || currency === 'eur') {
-    if (country === 'at') {
-      const parameters = {
-          currency: 'EUR', 			// If currency is not supplied, defaults to USD
-          symbol: '€',			// Overrides the currency's default symbol
-          decimal: ',',			// Overrides the locale's decimal character
-          group: '.',			// Overrides the locale's group character (thousand separator)
-          pattern: '#,##0.00 !'		// Overrides the locale's default display pattern
-        };
-      return OSREC.CurrencyFormatter.format(amount, parameters);
+  const Formatter = require('format-currency');
+  const inspector = typeof(amount);
+  if (inspector) {
+    if (currency === 'EUR' || currency === 'eur') {
+      if (country === 'at' || country === 'AT') {
+        const options = {format: '%s %v', symbol: '€', locale: 'de-DE'};
+        return Formatter(amount, options);
+      } else if (country === 'uk' || country === 'UK') {
+        const options = { format: '%s %v', symbol: '€', locale: 'en-gb' };
+        return Formatter(amount, options);
+      }
+    } else if (currency === 'USD' || currency === 'usd') {
+      if (country === 'at' || country === 'AT') {
+        const options = { format: '%s %v', symbol: '$', locale: 'de-DE' };
+        return Formatter(amount, options);
+      }
+    } else if (currency === 'GBP' || currency === 'gbp') {
+      if (country === 'at' || country === 'AT') {
+        const options = { format: '%s %v', symbol: '£', locale: 'de-DE'};
+        return Formatter(amount, options);
+      }
     }
+  } else {
+   return 'undefined';
   }
-  return ' ';
 }
-  //     return string;
-  //   } else if (country === 'uk') {
-  //     return Formatter.format(amount, { locale: 'en-US' });
-  //   } else {
-  //     throw undefined;
-  //   }
-  // } else if (currency === 'USD' || currency === 'usd') {
-  //   if (country === 'at') {
-  //     return Formatter(amount).format('$ 0,0');
-  //   }
-  // } else {
-  //   throw undefined;
-  // }
-

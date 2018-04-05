@@ -22,7 +22,11 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
+    "currency-formatter": "^1.4.2",
+    "currencyformatter.js": "^2.0.0",
+    "format-currency": "^1.0.0",
     "moment": "^2.22.0",
+    "numeral": "^2.0.6",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },

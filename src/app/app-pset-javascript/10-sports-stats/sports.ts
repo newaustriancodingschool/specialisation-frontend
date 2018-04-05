@@ -65,15 +65,22 @@ const sportsParser = {
   }
 };
 
+interface Composer {
+  firstname: string;
+  lastname: string;
+  state: string;
+  discipline: string;
+  birthday: Composer;
+}
 
 export class Person {
-  firstname;
-  lastname;
-  state;
-  discipline;
-  birthday;
+  firstname: Composer;
+  lastname: Composer ;
+  state: Composer;
+  discipline: Composer;
+  birthday: Composer;
 
-  constructor(firstname, lastname, state, category, birthday) {
+  constructor(firstname: Composer, lastname: Composer, state: Composer, category: Composer, birthday: Composer) {
     this.firstname = firstname;
     this.lastname = lastname;
     this.state = state;

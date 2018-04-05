@@ -7,7 +7,7 @@ export function dateFormatter(date: Date, country: string): string {
   } else if (country === 'uk') {
     return moment(date).format('DD/MM/YYYY hh:mm ') + 'p.m.';
   } else if (country === 'us') {
-    return moment(date).format('MM/DD/YYYY hh:mm a') ;
+    return moment(date).format('MM/DD/YYYY hh:mm ') + 'a.m.';
   } else {
     throw error;
   }

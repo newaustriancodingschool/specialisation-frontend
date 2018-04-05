@@ -1,6 +1,6 @@
 import * as moment from 'moment';
 
-export function datediff(first, second): number {
+export function datediff(first: Date, second: Date): number {
 
   const firstDate = moment(first).startOf('day');
   const secondDate = moment(second).startOf('day');
