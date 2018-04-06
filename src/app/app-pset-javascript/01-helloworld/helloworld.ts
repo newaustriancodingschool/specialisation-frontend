@@ -1,6 +1,4 @@
 export function helloWorld() {
-let string = 'Hello World' ; 
+  const string = "Hello World";
   return string;
-
 }
-

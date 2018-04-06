@@ -1,4 +1,19 @@
-import {Person, SportsStats} from './sports';
+import {SportsStats} from './sports';
+import {Person} from './person';
+
+const csv = [
+  'Hans,Krankl, Wien,Fußball,1953-02-14',
+  'Franz,Klammer,Kärnten,Skifahren,1953-12-03',
+  'Thomas,Muster,Steiermark,tennis,1967-10-02',
+  'Niki,Lauda,wien,Formel 1,1949-2-22',
+  'Dominik,thiem,Niederösterreich, Tennis ,1993-09-03',
+  'Hermann,Maier,Salzburg,Skifahren,1972-12-7',
+  'Marcel,Hirscher,Salzburg,Skifahren,1989-3-2',
+  'Otto,Konrad,Steiermark,Fußball,1964-11-1',
+  'Georg,Totschnig,Tirol,Radfahren,1971-5-25',
+  'Gerhard,Berger,Tirol,Formel 1,1959-8-27',
+  'Andreas,Herzog,Wien,Fußball,1968-10-10'
+].join('\n');
 
 describe('10 - Sports Stats', () => {
   it('should return a person', () => {
@@ -38,17 +53,3 @@ describe('10 - Sports Stats', () => {
     ]);
   });
 });
-
-const csv = [
-  'Hans,Krankl, Wien,Fußball,1953-02-14',
-  'Franz,Klammer,Kärnten,Skifahren,1953-12-03',
-  'Thomas,Muster,Steiermark,tennis,1967-10-02',
-  'Niki,Lauda,wien,Formel 1,1949-2-22',
-  'Dominik,thiem,Niederösterreich, Tennis ,1993-09-03',
-  'Hermann,Maier,Salzburg,Skifahren,1972-12-7',
-  'Marcel,Hirscher,Salzburg,Skifahren,1989-3-2',
-  'Otto,Konrad,Steiermark,Fußball,1964-11-1',
-  'Georg,Totschnig,Tirol,Radfahren,1971-5-25',
-  'Gerhard,Berger,Tirol,Formel 1,1959-8-27',
-  'Andreas,Herzog,Wien,Fußball,1968-10-10'
-].join('\n');

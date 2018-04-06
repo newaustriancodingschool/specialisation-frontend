@@ -1,5 +1,9 @@
+type T3BoardData = Array<Array<string | null>>;
+
 export class T3Board {
-  constructor(data) {
+  private data: T3BoardData;
+
+  constructor(data: T3BoardData) {
 
   }
 
