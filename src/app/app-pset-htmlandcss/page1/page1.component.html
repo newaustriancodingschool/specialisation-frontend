@@ -1,4 +1,9 @@
-<div class="wrapper">
-  <h1>Hello World</h1>
+<div class="wrapper" *ngIf="isVisible">
+  <h1>Hello {{myName}}</h1>
   <p>This page is here to verify that the end-to-end tests are working correctly.</p>
+</div>
+
+<div *ngIf="!isVisible">
+  <input type="text" placeholder="Type your name" [(ngModel)]="myName">
+  <input type="button" value="anything" (click)="writeMyName()">
 </div>

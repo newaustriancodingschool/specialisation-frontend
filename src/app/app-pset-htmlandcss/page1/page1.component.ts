@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page1.component.css']
 })
 export class Page1Component implements OnInit {
+  myName: string = '';
+  isVisible: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  writeMyName() {
+    this.isVisible = true;
   }
 
 }
