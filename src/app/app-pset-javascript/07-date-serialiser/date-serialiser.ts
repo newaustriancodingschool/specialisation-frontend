@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 
 interface Composer {
   firstname: string;
@@ -7,32 +8,41 @@ interface Composer {
 }
 
 export enum DateType {
-  ISO,
-  UTC
+  ISO=0,
+  UTC=1
 }
 
 export const dateSerialiser = {
-  serialise: function(anObject: Composer, type: DateType): any {
+  serialise: function(anObject:Composer, type:DateType): any {
 
-    if(type == DateType.UTC)
+    
+    if(type)
     {
-      // console.log("birthday::"+anObject.birthday);
       let firstname:string = anObject.firstname;
       let lastname:string = anObject.lastname;
-      let birthday:Date = new Date(anObject.birthday.getTime());
-      let deathday:Date = new Date(anObject.deathday.getTime());
+      let birthday:number = anObject.birthday.getTime();
+      let deathday:number = anObject.deathday.getTime();
 
-      // console.log("birthday :" + birthday);
-
-      return JSON.stringify([new String(firstname), new String(lastname), birthday , deathday ]);
-
-
-      // let myJSON = JSON.stringify(anObject);
-      // return myJSON;
+      return JSON.stringify ({firstname:firstname, lastname:lastname, birthday:birthday , deathday:deathday });
     }
+    else if (!type )
+    {
+      anObject.birthday = new Date(anObject.birthday);
+      let Newbirthday = moment(anObject.birthday).format("YYYY-MM-DD");
+      let Newdeathday = moment(anObject.deathday).format("YYYY-MM-DD");
 
-    return JSON.stringify(anObject);
+        let firstname:string = anObject.firstname;
+        let lastname:string = anObject.lastname;
 
+        
+        // let myJSON = JSON.stringify(anObject);
+        return JSON.stringify ({firstname:firstname, lastname:lastname, birthday:Newbirthday , deathday:Newdeathday });
+
+    }
+    // else
+    // {
+    // return JSON.stringify(anObject);
+    // }
 
   },
   deserialise: function(json: string): Composer {

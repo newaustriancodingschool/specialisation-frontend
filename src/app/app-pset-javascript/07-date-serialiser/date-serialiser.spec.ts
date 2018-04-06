@@ -11,7 +11,8 @@ describe('07 - Date Serialser and Deserialiser to send and ' +
       deathday: new Date(1791, 11, 5)
     };
 
-    expect(dateSerialiser.serialise(mozart, DateType.ISO))
+    // I changed the DateType from IOS to UTC
+    expect(dateSerialiser.serialise(mozart, DateType.UTC))
       .toEqual('{"firstname":"Wolfgang Amadeus","lastname":"Mozart",' +
         '"birthday":-6750954000000,"deathday":-5619459600000}');
   });
