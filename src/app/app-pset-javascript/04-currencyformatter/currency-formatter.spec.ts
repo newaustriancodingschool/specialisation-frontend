@@ -2,6 +2,7 @@ import {currencyFormatter} from './currency-formatter';
 
 describe('04 - Currency Formatter', () => {
   it('should format in € in German/Austrian style', () => {
+    // expect(currencyFormatter(1000, 'EUR', 'at')).toEqual('€ 1.000,00');
     expect(currencyFormatter(1000, 'EUR', 'at')).toEqual('€ 1.000,00');
   });
   it('should format in € in UK style', () => {

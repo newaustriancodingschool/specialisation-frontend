@@ -12,8 +12,28 @@ export enum DateType {
 }
 
 export const dateSerialiser = {
-  serialise: function(anObject: Composer, type: DateType): string {
-    return '';
+  serialise: function(anObject: Composer, type: DateType): any {
+
+    if(type == DateType.UTC)
+    {
+      // console.log("birthday::"+anObject.birthday);
+      let firstname:string = anObject.firstname;
+      let lastname:string = anObject.lastname;
+      let birthday:Date = new Date(anObject.birthday.getTime());
+      let deathday:Date = new Date(anObject.deathday.getTime());
+
+      // console.log("birthday :" + birthday);
+
+      return JSON.stringify([new String(firstname), new String(lastname), birthday , deathday ]);
+
+
+      // let myJSON = JSON.stringify(anObject);
+      // return myJSON;
+    }
+
+    return JSON.stringify(anObject);
+
+
   },
   deserialise: function(json: string): Composer {
     return {

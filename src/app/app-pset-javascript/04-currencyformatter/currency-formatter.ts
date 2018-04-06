@@ -1,3 +1,9 @@
+
+// var currency = require("currency.js");
+var currency_value = require('currency-formatter');
+
+// yarn add currency.js
+
 export function currencyFormatter(amount:any, currency = 'EUR', country = 'at'): string {
 
   if(typeof(amount)=="string")
@@ -9,38 +15,41 @@ export function currencyFormatter(amount:any, currency = 'EUR', country = 'at'):
   // currency = currency.toUpperCase();
 
 
-
   switch(country) { 
     case "at" : 
     { 
       // € 1.000,00'
       if (currency=="EUR" || currency=="eur")
-        return createMoneyFormAt(amount);
+        return currency_value.format(amount, { code: 'EUR' }).toString();
 
       // $ 0,00
       if (currency=="USD" && amount==0)
-        return createMoneyFormUs(amount);        
+        return currency_value.format(amount, { code: 'USD' });  
+  
       // $ 5,12
       if (currency=="USD")
-        return createMoneyFormUs(amount);
+        return currency_value.format(amount, { code: 'USD' });  
+
       // £ 1,239.00
       if (currency=="GBP")
-        return createMoneyFormUk2(amount);        
+        return currency_value.format(amount, { code: 'GBP' });     
     } 
     case "AT" : 
     { 
       // € 1.000,00'
       if (currency=="EUR" || currency=="eur")
-        if (amount==1)
-        {
-          var NewAmount = "€ " + 1 + "," + "00";
-          return NewAmount;
-        }     
+        return currency_value.format(amount, { code: 'EUR' });
+        // if (amount==1)
+        // {
+        //   var NewAmount = "€ " + 1 + "," + "00";
+        //   return NewAmount;
+        // }     
     } 
     case  "uk": 
     { 
       // € 1,000.00
-      return createMoneyFormUk(amount);
+      // return createMoneyFormUk(amount);
+      return currency_value.format(amount, { code: 'EURUK' });
     } 
     case  "us": 
     { 
@@ -61,69 +70,3 @@ export function currencyFormatter(amount:any, currency = 'EUR', country = 'at'):
 
 }
 
-
-
-
-export function createMoneyFormAt(amount:any)
-{
-  if (amount==1)
-  {
-    var NewAmount = "€ " + 1 + "," + "00";
-    return NewAmount;
-  }
-  var NewAmount = "€ " + (amount / 1000) + "." + "000" + "," + "00"; 
-  return NewAmount;
-}
-
-export function createMoneyFormUk(amount:any)
-{
-  var NewAmount = "€ " + (amount / 1000) + "," + "000" + "." + "00"; 
-  return NewAmount;
-}
-
-export function createMoneyFormUs(amount:any)
-{
-  if (amount==0)
-  {
-    var NewAmount = "$ " + 0 + "," + "00";
-    return NewAmount;
-  }
-
-  var factor = Math.pow(10, 2);
-  var tempNumber = amount * factor;
-  var roundedTempNumber = Math.round(tempNumber);
-
-  var finalNumber = roundedTempNumber / 100;
-  var first = finalNumber ^ 0;
-
-  var second = (finalNumber - first) * 100;
-  second = second ^ 0;
-
-  var NewAmount = "$ " + first + "," + second;
-  return NewAmount;
-}
-
-export function createMoneyFormUk2(amount:any)
-{
-  var factor = Math.pow(10, 2);
-  var tempNumber = amount * factor;
-  var roundedTempNumber = Math.round(tempNumber);
-
-  var finalNumber = roundedTempNumber / 100;
-  finalNumber = finalNumber ^ 0;
-  finalNumber = finalNumber / 1000;
-
-  var first = finalNumber ^ 0;
-
-  var second = (finalNumber - first) * 1000;
-
-  var factor2 = Math.pow(10, 2);
-  var tempNumber2 = second * factor2;
-  var roundedTempNumber2 = Math.round(tempNumber2);
-  roundedTempNumber2 = roundedTempNumber2 / 100;
-  second = roundedTempNumber2;
-
-  var NewAmount = "£ " + first + "," + second + "." + "00";
-
-  return NewAmount;
-}
