@@ -8,12 +8,14 @@ import {AppPsetHtmlandcssModule} from './app-pset-htmlandcss/app-pset-htmlandcss
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {routes} from './app-routing/routes';
 import {RouterModule} from '@angular/router';
+import { HelloComponent } from './hello/hello.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelloComponent
   ],
   imports: [
     BrowserModule,

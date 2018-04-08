@@ -1,11 +1,11 @@
 //import { text } from "@angular/core";
 
 export const wordStats = {
-  countWords: (text): number => {
+  countWords: (text:string): number => {
     return text.split(" ").length;
   },
 
-  occurrences: (word, text): number => {
+  occurrences: (word:string, text:string): number => {
     var count = (text.match(/I/g) || []).length;
     return count;
   },

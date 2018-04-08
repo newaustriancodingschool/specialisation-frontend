@@ -1,4 +1,4 @@
-export function datediff(first, second) {
+export function datediff(first:Date, second:Date) {
   // Get 1 day in milliseconds
 
   const one_day = 1000 * 60 * 60 * 24;
