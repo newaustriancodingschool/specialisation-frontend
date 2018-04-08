@@ -1,43 +1,35 @@
-export function dateFormatter(date, country) {
-  var day = date.getDate(),
-      month = date.getMonth() + 1,
-      year = date.getFullYear(),
-      hour = date.getHours(),
-      minute = date.getMinutes(),
-      ampm;
+const padding = (value: number) => value < 10 ? ('0' + value).slice(-2) : value.toString()
 
-  day < 10 ? day = '0' + day : null;
-  month < 10 ? month = '0' + month : null;
-  hour < 10 ? hour = '0' + hour : null;
-  minute < 10 ? minute = '0' + minute : null;
+export function dateFormatter(date: Date, country: string) {
+  let day: string = padding(date.getDate()),
+      month: string = padding(date.getMonth() + 1),
+      year: string = padding(date.getFullYear()),
+      hour: string = padding(date.getHours()),
+      minute: string = padding(date.getMinutes()),
+      hour12: string = '',
+      ampm: string;
 
-  if (country == 'at') {
-    return day + "." + month + "." + year + " " + hour + ":" + minute;
-    // '01.02.2017 12:05'
-  }
-  else if (country == 'uk') {
-    if (hour >= 12) {
+  switch (true) {
+    case Number(hour) >= 12:
       ampm = 'p.m.';
-      hour = ('0' + (hour - 12)).slice(-2);
-    }
-    else {
+      hour12 = ('0' + (Number(hour) - 12)).slice(-2);
+      break;
+    default:
       ampm = 'a.m.';
-    }
-    return day + "/" + month + "/" + year + " " + hour + ":" + minute + " " + ampm; 
-    // '01/02/2017 03:12 p.m.'
+      hour12 = hour;
   }
-  else if (country == 'us') {
-    if (hour >= 12) {
-      ampm = 'p.m.';
-      hour = ('0' + (hour - 12)).slice(-2);
-    }
-    else {
-      ampm = 'a.m.';
-    }
-    return month + "/" + day + "/" + year + " " + hour + ":" + minute + " " + ampm; 
-    // '05/30/2017 06:45 a.m.'
-  }
-  else {
-    return date.toThrow();
+
+  switch (country) {
+    case 'at':
+      return day + '.' + month + '.' + year + ' ' + hour + ':' + minute;
+      // '01.02.2017 12:05'
+    case 'uk':
+      return day + '/' + month + '/' + year + ' ' + hour12 + ':' + minute + ' ' + ampm; 
+      // '01/02/2017 03:12 p.m.'
+    case 'us':
+      return month + '/' + day + '/' + year + ' ' + hour12 + ':' + minute + ' ' + ampm; 
+      // '05/30/2017 06:45 a.m.'
+    default:
+      throw 'error';
   }
 }

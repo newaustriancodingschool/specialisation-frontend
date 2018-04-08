@@ -1,32 +1,49 @@
+interface keys {
+  term: string;
+  count: number;
+}
+
 export const wordStats = {
-  countWords: (text): number => {
-    return text.split(" ").length;
+  countWords: (text: string): number => {
+    return text.split(' ').length;
   },
-  occurrences: (word, text): number => {
-    let textArray = text.split(" ");
-    let counter = 0;
-    for (let arrayElement in textArray) {
+  occurrences: (word: string, text: string): number => {
+    let textArray: Array<string> = text.split(' ');
+    let counter: number = 0;
+    let arrayElement: string;
+    for (arrayElement in textArray) {
       textArray[arrayElement].match(word.toUpperCase()) ? counter++ : null;
     }
     return counter;
   },
-  occurrencesList: (text): any => {
-    let textArray = text.split(" ");
-    var listArray = []
-    var listObject = {}
-    
-    this.listObject.term = textArray[0]
-    this.listObject.count = 1
-
-
-      for (let arrayElement in textArray) {
-        object.term = textArray[arrayElement] ? counter++ : null;
+  occurrencesList: (text: string): any => {
+    text = text.toLowerCase();
+    let textArray: Array<string> = text.split(' ');
+    let checkArray: Array<string> = []
+    let returnObject: Array<any> = [];
+    let arrayElement: string;
+    for (arrayElement in textArray) {
+      let wordOccurre: number, words: Array<string> | null;
+      if(checkArray.indexOf(textArray[arrayElement]) == -1) {
+        words = text.match(new RegExp(textArray[arrayElement], 'g'));
+        if(words){
+          checkArray.push(textArray[arrayElement]);
+          returnObject.push({term: textArray[arrayElement], count: words.length});
+        }
       }
-
-    for (let arrayElement in textArray) {
-      let r = textArray.filter(x => x == arrayElement).length
     }
-    
-    return 
+    function compareTerm(a: any,b: any): any {
+      return a.term > b.term
+    }
+    function compareCount(a: any,b: any) {
+      if (a.count < b.count)
+        return 1;
+      if (a.count > b.count)
+        return -1;
+      return 0;
+    }
+    returnObject.sort(compareTerm);
+    returnObject.sort(compareCount);
+    return returnObject;
   }
 };

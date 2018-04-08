@@ -1,20 +1,32 @@
-export function currencyFormatter(amount, currency = 'EUR', country = 'at'): string {
+import { debugOutputAstAsTypeScript } from "@angular/compiler";
+
+export function currencyFormatter(amount: string | number, currency: string = 'EUR', country: string = 'at'): string {
+  let currencySymbol: string = '',
+      countryCode: string = '';
   currency = currency.toUpperCase();
   country = country.toLowerCase();
 
+  switch (country) {
+    case 'at':
+      countryCode = 'de-DE';
+      break;
+    case 'uk':
+      countryCode = 'en-UK';
+  }
+
+  switch (currency) {
+    case 'EUR':
+      currencySymbol = '€';
+      break;
+    case 'USD':
+      currencySymbol = '$';
+      break;
+    case 'GBP':
+      currencySymbol = '£';
+  }
+
   if (typeof(amount) == 'string') {
-    throw 'string input';
+    throw null
   }
-  if (currency == 'EUR' && country == 'at') {
-    return '€' + ' ' + amount.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  }
-  if (currency == 'EUR' && country == 'uk') {
-    return '€' + ' ' + amount.toLocaleString('en-UK', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  }
-  if (currency == 'USD' && country == 'at') {
-    return '$' + ' ' + amount.toLocaleString('de-DE', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  }
-  if (currency == 'GBP' && country == 'at') {
-    return '£' + ' ' + amount.toLocaleString('en-UK', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  }
+  return currencySymbol + ' ' + amount.toLocaleString(countryCode, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 }

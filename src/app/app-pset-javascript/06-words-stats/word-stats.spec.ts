@@ -14,7 +14,7 @@ describe('06 - Word Stats Spec', () => {
     expect(wordStats.occurrencesList(text)).toEqual([
       {term: 'rose', count: 4},
       {term: 'a', count: 3},
-      {term: 'is', count: 22}
+      {term: 'is', count: 3}
     ]);
   });
 });
