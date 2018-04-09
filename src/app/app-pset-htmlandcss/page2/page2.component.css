@@ -1,0 +1,17 @@
+.resizedTextbox {
+    width: 150px;
+    height: 10px;
+    padding: 10px
+  }
+  .box1 {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+
+}
+
+.box2 {
+    display: block;
+    padding: 10px;
+}
+

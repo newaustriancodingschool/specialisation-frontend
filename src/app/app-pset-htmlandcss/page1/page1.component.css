@@ -1,7 +1,7 @@
 div.wrapper {
-  color: rgb(255, 255, 255);
-  background: url("https://d26s1dosjyldof.cloudfront.net/experience/wp-content/uploads/2016/09/angularjs-features-1.png")rgba(177, 255, 153, 0.76);
-  background-position: center;
+  color: rgb(30, 163, 52);
+  /* background: url("https://d26s1dosjyldof.cloudfront.net/experience/wp-content/uploads/2016/09/angularjs-features-1.png")rgba(177, 255, 153, 0.76); */
+  /* background-position: center; */
   font-family: 'Arial Narrow',monospace;
   height: 350px ;
   
@@ -12,8 +12,9 @@ background: url("http://img.sytyson.com/thumb/800x600/2/84/284fe3993173adeefa007
 background-repeat: no-repeat;
 background-size: cover
 }
-h1 {
-  color: rgba(12, 248, 71, 0);
+h2 {
+  color: rgb(36, 41, 40);
+  font-size: 60px;
 }
 ::placeholder { 
   color: #002fff;

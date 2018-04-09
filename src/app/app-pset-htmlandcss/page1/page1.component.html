@@ -1,9 +1,9 @@
+<img  class="bg" src="{{imgUrl}}" alt="when image is broken link show me this text" title="Text will show up on hover">
 <div class="wrapper" *ngIf="isVisible" align="center">
-  <h1 >Welcome {{myName}} in </h1>
- 
+  <h2>Welcome {{myName}} in </h2>
 </div>
 
 <div align="center" *ngIf="!isVisible" class="input">
-  <input type="text" placeholder="Type your name" [(ngModel)]="myName"autofocus class="resizedTextbox">
+  <input type="text" placeholder="Type your name" [(ngModel)]="myName" autofocus class="resizedTextbox">
   <div><input type="button" value="anything" (click)="writeMyName()"></div>
 </div>
