@@ -1,0 +1,62 @@
+/* Background image */
+
+.basic-page{
+    margin-left: 200px;
+}
+.jumbotron {
+    text-align: center;
+    padding-top:20px !important;
+    padding-bottom:20px !important;
+    padding-left:0px !important;
+    border: 2px solid black;
+    background-image: url(photo3.jpg) ;
+    background-position: center;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    width: 800px;
+    height:400px;
+  }
+  
+  
+  .bg-cover {
+    background-size: cover;
+    color: white;
+    background-position: center center;
+    position: relative;
+    z-index: -2;
+  }
+  
+  .overlay {
+    background-color: #fff;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+table.div.left 
+  {
+    text-align: left;
+    border: 1px solid  blue;
+    overflow:initial;
+    color: black;
+    padding: 0px 0 0px 10px ;
+    height: 360px;
+    width: 300px;
+  }
+
+table.div.right 
+  {
+    text-align: right;
+    border: 1px solid  red;
+    overflow:auto;
+    color: black;
+    padding: 20px 10px 20px 0 ;
+    height: 360px;
+    width: 300px;
+    
+  }

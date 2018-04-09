@@ -1,0 +1,156 @@
+/* Background image */
+body
+{
+	height:700px;
+	border: 0px solid #000;	
+	padding: 10px 10px 10px 10px ;
+}
+
+
+.container
+  {
+
+    height:690px;
+	border: 0px solid  blue;
+	/*padding: 10px 10px 10px 10px;*/
+
+  }
+  
+  
+ .col-sm-2
+ {
+	 height:680px;
+	 border: 1px solid  #000;
+	 
+	 background-image:url(bg1.jpg);
+	 background-repeat:repeat-x;
+	 
+ }
+ 
+.col-sm-10
+{
+	 height:680px;
+	 border: 1px solid  #000;
+	 
+	 background-image:url(bg2.jpg);
+	 background-repeat:repeat-x;
+	 
+	 
+ }
+ .vertical-menu {
+    width: 100%; /* Set a width if you like */
+	height:100%;
+	overflow-y: auto;
+	text-align:left;
+	padding-top: 10px;
+	font-weight:normal;
+		
+}
+
+.vertical-menu a {
+    
+    color: black; /* Black text color */
+    display: list-item; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+	font-family: 'Pacifico', cursive;
+}
+
+.vertical-menu a:hover {
+    /*background-color: #fff; /* Dark grey background on mouse-over */
+	color:#FFF;
+	text-decoration: none;
+	font-family: 'Pacifico', cursive;
+}
+
+.vertical-menu a.active {
+    background-color: #fff; /* Add a white color to the "active/current" link */
+    color: white;
+	font-family: 'Pacifico', cursive;
+}
+
+a.focus:link, a.focus:visited
+{color:#FFF;}
+
+
+.main-container
+{
+	 border: 0px solid  #FF0;
+	 padding: 20px 20px 20px 20px;
+	 height:100%;
+	 text-align:left;
+	 
+	 margin: 0 20px 0 20px;
+	 
+		
+}
+
+.main-container h4
+{
+font-weight:bold;
+text-align:center;		
+}
+
+
+.main-container h5
+{
+font-weight:bold;
+margin-top:40px;	
+margin-bottom:20px;		
+}
+
+.main-container-images
+{
+	/*overflow-x:auto;*/
+	/*margin-right:20px;*/
+	
+}
+
+.main-container-images img
+{
+/*box-shadow: 10px 10px;*/
+/*padding-right:5px;*/	
+}
+
+.img1 
+{
+
+/*border:2px solid #fff;
+box-shadow: 5px 5px 2px #ccc;
+-moz-box-shadow: 5px 5px 2px #ccc;
+-webkit-box-shadow: 5px 5px 2px #ccc;
+-khtml-box-shadow: 5px 5px 2px #ccc;
+*/
+box-shadow: 5px 10px;	
+}
+
+/* Centered text */
+.centered 
+{
+	text-align: center;
+	width: 100%;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+    text-shadow: 2px 2px 4px #000000;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/*
+hr {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 1;
+}
+*/
+
+.thin_hr {
+	margin-top:0;
+	margin-bottom:0;
+	border:0;
+	height:1px;
+	background-color:#fff;
+	}
