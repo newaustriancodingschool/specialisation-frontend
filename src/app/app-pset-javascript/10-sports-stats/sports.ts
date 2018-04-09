@@ -20,7 +20,7 @@ export class SportsStats {
   getYoungest(discipline = 'all') {
     return this.people
       .filter((person:any) => discipline === 'all' || person.discipline === discipline)
-      .sort((a:string, b:string) => a.birthday.getTime() > b.birthday.getTime())
+      .sort((a:any, b:any) => a.birthday.getTime() > b.birthday.getTime())
       .map((person:any) => person.firstname + ' ' + person.lastname)
       .pop();
   }
