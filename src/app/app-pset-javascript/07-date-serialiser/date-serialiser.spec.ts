@@ -1,6 +1,6 @@
 import {dateSerialiser, DateType} from './date-serialiser';
 
-fdescribe('07 - Date Serialser and Deserialiser to send and ' +
+describe('07 - Date Serialser and Deserialiser to send and ' +
   'receive JSON data containing date vales', () => {
   it('should serialise a simple object with UTC seconds', () => {
     const mozart = {

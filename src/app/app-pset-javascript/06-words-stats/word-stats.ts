@@ -12,8 +12,8 @@ export const wordStats = {
 
   occurrencesList: (text:string): any => {
     let arrObj = [];
-    function Object(term, count:number) {
-      (this.term = term), (count = count);
+    function Object(term:string, count:number) {
+      (term = term), (count = count);
     }
 
     //Convert the text to lower case to calculate all the rose together

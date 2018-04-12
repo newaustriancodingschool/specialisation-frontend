@@ -1,38 +1,12 @@
-export function datediff(first:Date, second:Date) {
-  // Get 1 day in milliseconds
+import * as moment from "moment"; 
 
-  const one_day = 1000 * 60 * 60 * 24;
+export function datediff(firstDate :Date , secondDate : Date ) {
+// Define the first and second day 
+const Date1 = moment(firstDate).startOf('day');
+const Date2 = moment(secondDate).startOf('day');
+// Calculate the difference using moment library
+const duration = moment.duration(Date1.diff(Date2));
+const days = duration.asDays();
+return Math.abs(days);
 
-  // Convert both dates to milliseconds
-
-  const first_ms = first.getTime();
-
-  const second_ms = second.getTime();
-
-  // Calculate the difference in milliseconds
-
-  let difference_ms = second_ms - first_ms;
-
-  // take out milliseconds
-
-  difference_ms = difference_ms / 1000;
-
-  const seconds = Math.floor(difference_ms % 60);
-
-  difference_ms = difference_ms / 60;
-
-  const minutes = Math.floor(difference_ms % 60);
-
-  difference_ms = difference_ms / 60;
-
-  const hours = Math.floor(difference_ms % 24);
-
-  let days = Math.floor(difference_ms / 24);
-
-  if (days === 0) {
-    if (first.getDay() !== second.getDay()) {
-      days++;
-    }
-  }
-  return Math.abs(days);
 }
