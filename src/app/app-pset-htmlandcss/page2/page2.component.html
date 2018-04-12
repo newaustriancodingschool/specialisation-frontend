@@ -4,11 +4,13 @@
 
 
 <form>
+    <label for="name">First date</label> 
+<div class = box1><input type="text"   value = '2018, 0, 1' name='firstDate' [(ngModel)]="data.firstDate" placeholder="Enter the first date" autofocus class="resizedTextbox"></div>
+<label for="name">Second date</label> 
+<div class = box2><input type="text"  value='2007, 0, 1' name='secondDate'  [(ngModel)]="data.secondDate" placeholder="Enter the second date" class="resizedTextbox"></div>
 
-<div class = box1><input type="text"   placeholder="Enter the first date" autofocus class="resizedTextbox"></div>
-<div class = box2><input type="text"   placeholder="Enter the second date" class="resizedTextbox"></div>
-<div><button type="button">Click Me!</button></div>
+<div><button (click)="calculate()">Calculate</button></div>
+<label for="name">The difference</label> 
+<div class = box2><input type="text"   placeholder="The difference " value = {{result}} class="resizedTextbox"></div>
 </form>
-
-
 </div>

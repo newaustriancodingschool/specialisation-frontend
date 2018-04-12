@@ -1,5 +1,6 @@
 export function currencyFormatter(
-  amount,
+
+  amount = string | number,
   currency = "EUR",
   country = "at"
 ): string {
