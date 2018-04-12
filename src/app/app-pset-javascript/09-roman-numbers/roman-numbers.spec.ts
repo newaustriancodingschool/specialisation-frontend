@@ -1,6 +1,6 @@
 import {converter} from './roman-numbers';
 
-describe('09 - Roman Numbers Converter', () => {
+fdescribe('09 - Roman Numbers Converter', () => {
 
   it('should convert I', () => {
     expect(converter.toArabic('I')).toBe(1);

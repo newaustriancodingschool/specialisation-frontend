@@ -6,20 +6,23 @@ interface Composer {
 }
 
 export enum DateType {
-  ISO,
-  UTC
+  UTC,
+  ISO
 }
 
 export const dateSerialiser = {
   serialise: function(anObject: Composer, type: DateType): string {
-    return '';
+    anObject.birthday = new Date(anObject.birthday.getTime());
+    anObject.deathday = new Date(anObject.deathday.getTime());
+    return JSON.stringify(anObject);
   },
   deserialise: function(json: string): Composer {
+    let myJson: Composer = JSON.parse(json);
     return {
-      firstname: '',
-      lastname: '',
-      birthday: new Date(),
-      deathday: new Date()
+      firstname: myJson.firstname,
+      lastname: myJson.lastname,
+      birthday: new Date(myJson.birthday),
+      deathday: new Date(myJson.deathday)
     };
   }
 };
