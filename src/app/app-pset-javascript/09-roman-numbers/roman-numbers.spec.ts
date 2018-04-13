@@ -25,7 +25,7 @@ describe('09 - Roman Numbers Converter', () => {
     expect(converter.toRoman(1)).toEqual('I');
   });
   it('should convert 4', () => {
-    expect(converter.toRoman(4)).toEqual('VI');
+    expect(converter.toRoman(4)).toEqual('IV');
   });
   it('should convert 11', () => {
     expect(converter.toRoman(11)).toEqual('XI');
