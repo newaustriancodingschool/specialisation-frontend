@@ -1,4 +1,3 @@
-import { error } from 'util';
 
 export function currencyFormatter(amount: number, currency = 'EUR', country = 'at'): string {
   const Formatter = require('format-currency');
@@ -24,6 +23,6 @@ export function currencyFormatter(amount: number, currency = 'EUR', country = 'a
       }
     }
   } else {
-   return 'undefined';
+   throw Error;
   }
 }

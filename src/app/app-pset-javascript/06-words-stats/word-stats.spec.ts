@@ -13,8 +13,8 @@ describe('06 - Word Stats Spec', () => {
     const text = 'Rose is a rose is a rose is a rose';
     expect(wordStats.occurrencesList(text)).toEqual([
       {term: 'rose', count: 4},
-      {term: 'a', count: 3},
-      {term: 'is', count: 3}
+      { term: 'is', count: 3},
+      {term: 'a', count: 3}
     ]);
   });
 });

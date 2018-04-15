@@ -1,7 +1,7 @@
 export class SportsStats {
-  people;
+  people: String;
 
-  constructor(csv) {
+  constructor(csv: string) {
     this.people = sportsParser.parseCsv(csv);
   }
 
@@ -45,11 +45,11 @@ export class SportsStats {
 }
 
 const sportsParser = {
-  parseCsv: function(lines) {
+  parseCsv: function (lines: string) {
     return lines.split('\n').map(sportsParser.parseCsvLine);
   },
 
-  parseCsvLine: function(line) {
+  parseCsvLine: function (line: string) {
     const [firstname, lastname, state, discipline, birthdayStr] = line
       .split(',').map(sportsParser.cleanWord);
     const [, year, month, day] = birthdayStr
@@ -58,7 +58,7 @@ const sportsParser = {
     return new Person(firstname, lastname, state, discipline, birthday);
   },
 
-  cleanWord: function(word) {
+  cleanWord: function(word: string) {
     return word
       .trim()
       .replace(/^\w/, char => char.toUpperCase());
