@@ -1,3 +1,24 @@
-<p>
-  page3 works!
-</p>
+<img  class="bg" src="{{imgUrl}}" alt="when image is broken link show me this text" title="Text will show up on hover">
+
+<div  align="center" class ="wrapper" > 
+<form>
+
+<div class = box1>
+  <input type="text"  value = '2018, 0, 1' name='theDate' [(ngModel)]="data.date" placeholder="Enter the date" autofocus class="resizedTextbox">
+</div>
+<div>
+<select class= box3>
+    <option value="at">AT</option>
+    <option value="uk">UK</option>
+    <option value="us">US</option>
+</select>
+</div>
+<div>
+  <button (click)="dateformatter(data.date,data.co)">Calculate</button>
+</div>
+<div class = box2><input type="text"   placeholder="The difference " value = {{result}} class="resizedTextbox"></div>
+</form>
+</div>
+
+
+

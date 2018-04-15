@@ -14,16 +14,16 @@ export const wordStats = {
     let arrObj = [];
     function Object(term:string, count:number) {
       (term = term), (count = count);
-    }
+    }   
 
     //Convert the text to lower case to calculate all the rose together
     let LowerCasetext = text.toLowerCase();
-
     let sentence = [];
+    let obj: Array<any> = [];
     sentence = LowerCasetext.split(" ");
     let sortedArr = [],
-      counter = 1;
-    //Sort the array
+    counter = 1;
+    // Sort the array
     sortedArr = sentence.sort();
     //Two loops for matching and calculate the same word
     for (var i = 0; i < sortedArr.length; i = i + counter) {
@@ -32,7 +32,7 @@ export const wordStats = {
         if (sortedArr[i] === sortedArr[j]) counter++;
       }
       // I got the right result but I couldn't get the right form
-      let obj = new Object(sortedArr[i], counter);
+       let obj = (sortedArr[i], counter);
       arrObj.push(obj);
     }
     return arrObj;

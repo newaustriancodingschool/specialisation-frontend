@@ -1,50 +1,50 @@
-export function currencyFormatter(
 
-  amount = string | number,
-  currency = "EUR",
-  country = "at"
-): string {
-  currency = currency.toUpperCase();
-  country = country.toLowerCase();
+export function currencyFormatter(amount: string | number, currency: string = 'EUR', country: string = 'at') {
 
-  if (typeof amount === "string" || amount instanceof String) {
-    throw "error";
+  
+    let currencySymbol: string = '',
+    countryCode: string = '';
+    currency = currency.toUpperCase();
+    country = country.toLowerCase();
+
+  if (typeof amount === 'string') {
+    throw Error;
   }
-  if (currency === "EUR" && country === "at") {
+  if (currency === 'EUR' && country === 'at') {
     return (
-      "€" +
-      " " +
-      amount.toLocaleString("de-DE", {
+      '€' +
+      ' ' +
+      amount.toLocaleString('de-DE', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       })
     );
-  } else if (currency === "EUR" && country === "uk") {
+  } else if (currency === 'EUR' && country === 'uk') {
     return (
-      "€" +
-      " " +
-      amount.toLocaleString("en-UK", {
+      '€' +
+      ' ' +
+      amount.toLocaleString('en-UK', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       })
     );
-  } else if (currency === "USD" && country === "at") {
+  } else if (currency === 'USD' && country === 'at') {
     return (
-      "$" +
-      " " +
-      amount.toLocaleString("de-DE", {
+      '$' +
+      ' ' +
+      amount.toLocaleString('de-DE', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       })
     );
-  } else if (currency === "GPB" && country === "at") {
+  } else if (currency === 'GPB' && country === 'at') {
     return (
-      "£" +
-      " " +
-      amount.toLocaleString("en-UK", {
+      '£' +
+      ' ' +
+      amount.toLocaleString('en-UK', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       })
     );
   }
-}
+  }

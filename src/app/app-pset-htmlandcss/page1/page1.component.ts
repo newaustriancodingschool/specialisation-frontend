@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Page1Component implements OnInit {
   myName: string = '';
   isVisible: boolean = false;
-  imgUrl: string = 'http://img.sytyson.com/thumb/800x600/2/84/284fe3993173adeefa00774d8ae56c42.jpg';
+  imgUrl: string = 'https://ak1.picdn.net/shutterstock/videos/1006819771/thumb/6.jpg';
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class Page1Component implements OnInit {
 
   writeMyName() {
     this.isVisible = true;
-    this.imgUrl = 'https://d26s1dosjyldof.cloudfront.net/experience/wp-content/uploads/2016/09/angularjs-features-1.png';
+    this.imgUrl = 'http://serverpartsonline.com/wp-content/uploads/2017/04/Welcome_Part-Source-Online.jpg';
   }
 
 }

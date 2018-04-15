@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import * as moment from "moment"; 
-import { datediff } from '../../app-pset-javascript/03-datediff/datediff';
+import * as moment from 'moment';
 
-
-interface Data {
-  firstDate: string;
-  secondDate: string;
-}
+// Service
+//import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-page2',
@@ -14,27 +10,25 @@ interface Data {
   styleUrls: ['./page2.component.css']
 })
 export class Page2Component implements OnInit {
-  imgUrl: string = 'https://trbbbbb.com/wp-content/uploads/data/2018/1/9/laptop-cal-PIC-WSW30685.jpg';
-
-  data : Data =  {
-    firstDate :'' , 
-    secondDate : '' 
+  imgUrl: string = 'http://www.bhmpics.com/wallpapers/time_to_be_creative-1440x900.jpg';
+  data: any = {
+    firstDate: null,
+    secondDate: null
   };
-  result = this.calculate();
+  result: number;
 
+  ngOnInit() {}
 
-  ngOnInit() {
-    this.data.firstDate = moment().format("YYYY-MM-DD");
-    this.data.secondDate = moment().format("YYYY-MM-DD");
+  datediff(firstDate: Date, secondDate: Date): void {
     
-  }
-   calculate() {
+    // Define the first and second day 
+    const Date1 = moment(firstDate, 'YYYY-MM-DD').startOf('day');
+    const Date2 = moment(secondDate, 'YYYY-MM-DD').startOf('day');
+    // Calculate the difference using moment library
+    const duration = moment.duration(Date1.diff(Date2));
+    const days = duration.asDays();
+    this.result =  Math.floor(Math.abs(days));
 
-  const dat1 = moment(this.data.firstDate).toDate; // moment(this.data.firstDate).startOf('day');
-  const dat2 = moment(this.data.secondDate).toDate;//moment(this.data.secondDate).startOf('day');
-  
-  const duration = moment.duration(dat1.diff(dat2));
-  const days = duration.asDays();
-  return Math.abs(days);
-  }
+}
+
 }

@@ -1,9 +1,10 @@
+<link href="https://fonts.googleapis.com/css?family=Akronim|Cabin+Sketch|Faster+One|Fredericka+the+Great|Hanalei|Montserrat+Subrayada:700|Rye|Vast+Shadow" rel="stylesheet"> 
 <img  class="bg" src="{{imgUrl}}" alt="when image is broken link show me this text" title="Text will show up on hover">
 <div class="wrapper" *ngIf="isVisible" align="center">
-  <h2>Welcome {{myName}} in </h2>
+  <h2>{{myName}} </h2>
 </div>
 
 <div align="center" *ngIf="!isVisible" class="input">
   <input type="text" placeholder="Type your name" [(ngModel)]="myName" autofocus class="resizedTextbox">
-  <div><input type="button" value="anything" (click)="writeMyName()"></div>
+  <div class=button><input type="button" value="Click Me" (click)="writeMyName()"></div>
 </div>

@@ -1,16 +1,22 @@
 <img  class="bg" src="{{imgUrl}}" alt="when image is broken link show me this text" title="Text will show up on hover">
 
-<div  align="center" class ="wrapper" > 
+<div>
+    <form>
+        <label for="name">First date</label>
+        <div class=box1>
+            <input type="text" name="firstdate" [(ngModel)]="data.firstDate" placeholder="Enter the first date" autofocus class="resizedTextbox">
+        </div>
+        <label for="name">Second date</label>
+        <div class=box2>
+            <input type="text" name="seconddate" [(ngModel)]="data.secondDate" placeholder="Enter the second date" class="resizedTextbox">
+        </div>
 
-
-<form>
-    <label for="name">First date</label> 
-<div class = box1><input type="text"   value = '2018, 0, 1' name='firstDate' [(ngModel)]="data.firstDate" placeholder="Enter the first date" autofocus class="resizedTextbox"></div>
-<label for="name">Second date</label> 
-<div class = box2><input type="text"  value='2007, 0, 1' name='secondDate'  [(ngModel)]="data.secondDate" placeholder="Enter the second date" class="resizedTextbox"></div>
-
-<div><button (click)="calculate()">Calculate</button></div>
-<label for="name">The difference</label> 
-<div class = box2><input type="text"   placeholder="The difference " value = {{result}} class="resizedTextbox"></div>
-</form>
+        <div>
+            <button (click)="datediff(data.firstDate, data.secondDate)">Calculate</button>
+        </div>
+        <label for="name">The difference</label>
+        <div class=box2>
+            <input type="text" placeholder="The difference " [value]="result" class="resizedTextbox">
+        </div>
+    </form>
 </div>
