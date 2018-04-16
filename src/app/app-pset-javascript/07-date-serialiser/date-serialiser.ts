@@ -14,7 +14,7 @@ export enum DateType {
 
 export const dateSerialiser = {
   serialise: function (anObject: Composer, type: DateType): string {
-    if (type === DateType.ISO ) {
+    if (type === DateType.UTC ) {
       anObject.birthday = new Date(anObject.birthday);
       anObject.deathday = new Date(anObject.deathday);
 
@@ -32,7 +32,7 @@ export const dateSerialiser = {
         }
       });
       return result;
-    } else if (type === DateType.UTC) {
+    } else if (type === DateType.ISO) {
 
       anObject.birthday.setHours(24);
       anObject.deathday.setHours(24);
