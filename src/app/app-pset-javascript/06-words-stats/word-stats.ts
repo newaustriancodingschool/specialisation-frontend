@@ -48,7 +48,13 @@ export const wordStats = {
     arr_test[2] = { term: arr_names[1], count: arr_num[1] };
 
     return arr_test;
+    // return 0;
   }
+  // occurrences: (word: string, text: string): number => {
+  //   return 0;
+  // },
+  // occurrencesList: (text: string): any => {
+  // }
 };
 
 export function getWordCount(t: any) {

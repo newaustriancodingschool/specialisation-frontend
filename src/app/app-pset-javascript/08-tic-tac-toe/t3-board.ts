@@ -1,11 +1,15 @@
-export class T3Board {
-  board: any;
-  counter: number;
-  result: any;
+type T3BoardData = Array<Array<string | null>>;
 
-  constructor(data: any) {
-    this.board = data;
-    this.counter = 0;
+export class T3Board {
+  // board: any;
+  // counter: number;
+  // result: any;
+
+  private data: T3BoardData;
+
+  constructor(data: T3BoardData) {
+    this.data = data;
+    // this.counter = 0;
   }
 
   getStatus(): any {
@@ -17,11 +21,11 @@ export class T3Board {
     for (let y = 0; y < 3; y++) {
       for (let x = 0; x < 3; x++) {
         // console.log(y + "," + x + " : " +this.board[y][x]);
-        if (this.board[y][x] == null || this.board[y][x] == "") {
+        if (this.data[y][x] == null || this.data[y][x] == "") {
           check_input_equal_null += 1;
         }
         if (counter != 3) {
-          if (x == y && this.board[y][x] == "x") {
+          if (x == y && this.data[y][x] == "x") {
             counter += 1;
             // console.log(counter);
             if (counter == 3) {

@@ -10,4 +10,5 @@ export function isValidEMail(email: string): boolean {
     return true;
   else if (!regular_expression_to_validate_email.test(email)) return false;
   else return false;
+  // return true;
 }

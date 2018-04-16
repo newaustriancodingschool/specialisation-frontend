@@ -1,91 +1,47 @@
-// import { Data } from "@angular/router";
+import {Person} from './person';
+import {sportsParser} from './sportsParser';
 
+export class SportsStats {
+  private people: Array<Person>;
 
-// export class SportsStats {
-//   people:any;
+  constructor(csv: string) {
+    this.people = sportsParser.parseCsv(csv);
+  }
 
-//   constructor(csv:any) {
-//     this.people = sportsParser.parseCsv(csv);
-//   }
+  getPeople() {
+    return this.people;
+  }
 
+  count() {
+    return this.people.length;
+  }
 
-//   getPeople() {
-//     return this.people;
-//   }
+  getYoungest(discipline = 'all') {
+    return this.people
+      .filter(person => discipline === 'all' || person.discipline === discipline)
+      .sort((a, b) => a.birthday.getTime() > b.birthday.getTime() ? 1 : -1)
+      .map(person => person.firstname + ' ' + person.lastname)
+      .pop();
+  }
 
-//   count() {
-//     return this.people.length;
-//   }
+  getStatesOccurrences() {
+    const occurrences: {[key: string]: number} = {};
+    this.people.forEach(person => {
+      if (occurrences[person.state]) {
+        occurrences[person.state] += 1;
+      } else {
+        occurrences[person.state] = 1;
+      }
+    });
 
-//   getYoungest(discipline = 'all') {
-//     return this.people
-//       .filter((person:any) => discipline === 'all' || person.discipline === discipline)
-//       .sort((a:any, b:any) => a.birthday.getTime() > b.birthday.getTime())
-//       .map((person:any) => person.firstname + ' ' + person.lastname)
-//       .pop();
-//   }
-
-//   getStatesOccurrences() {
-//     // 
-//     // const occurrences: Array<Person> = [];
-//     // this.people.forEach((person:Person) => {
-//     //   if (occurrences[person.state]) {
-//     //     occurrences[person.state] += 1;
-//     //   } else {
-//     //     occurrences[person.state] = 1;
-//     //   }
-//     // });
-
-//     // return Object.getOwnPropertyNames(occurrences)
-//     //   .map(state => ({name: state, count: occurrences[state]}))
-//     //   .sort((a, b) => {
-//     //     if (a.count === b.count) {
-//     //       return a.name > b.name ? 1 : -1;
-//     //     } else {
-//     //       return b.count - a.count;
-//     //     }
-//     //   });
-//     return null;
-//   }
-// }
-
-// const sportsParser = {
-//   parseCsv: function(lines:string) {
-//     return lines.split('\n').map(sportsParser.parseCsvLine);
-//   },
-
-//   parseCsvLine: function(line:string) {
-//     const [firstname, lastname, state, discipline, birthdayStr] = line
-//       .split(',').map(sportsParser.cleanWord);
-//     const [, year, month, day]:any = birthdayStr
-//       .match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
-//     const birthday:Data = new Date(year, month - 1, day);
-//     return new Person(firstname, lastname, state, discipline, birthday);
-//   },
-
-//   cleanWord: function(word:string) {
-//     return word
-//       .trim()
-//       .replace(/^\w/, char => char.toUpperCase());
-//   }
-// };
-
-// export class Person 
-// {
-//   firstname:string;
-//   lastname:string;
-//   state:string;
-//   discipline:string;
-//   birthday:Data;
-
-//     constructor(firstname:string, lastname:string, state:string, category:string, birthday:Data) 
-//     {
-//       this.firstname = firstname;
-//       this.lastname = lastname;
-//       this.state = state;
-//       this.discipline = category;
-//       this.birthday = birthday;
-//     }
-
-
-// }
+    return Object.getOwnPropertyNames(occurrences)
+      .map(state => ({name: state, count: occurrences[state]}))
+      .sort((a, b) => {
+        if (a.count === b.count) {
+          return a.name > b.name ? 1 : -1;
+        } else {
+          return b.count - a.count;
+        }
+      });
+  }
+}
