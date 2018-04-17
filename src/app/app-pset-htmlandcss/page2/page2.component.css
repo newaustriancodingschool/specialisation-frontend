@@ -1,0 +1,31 @@
+.h_text {
+    font-family: "lato";
+    font-size: 15px;
+}
+
+.background {
+    border-radius: 7px;
+    background-image: url("http://www.deutsche-lieder-online.de/images/erlkonig-illustration-von-albert-sterner-796.jpg");
+    background-position:butt;
+    background-size: 375px;
+    opacity: 0.1 ;
+}
+
+.border {
+    border: 1.5px solid black;
+    border-radius: 7px;
+}
+
+.position {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    height: 175px;
+    width: 400px;
+}
+
+p{
+    font-size: 5px;
+    text-align: center;
+    font-family: "lato";
+}

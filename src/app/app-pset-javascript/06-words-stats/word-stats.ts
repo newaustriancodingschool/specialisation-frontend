@@ -1,4 +1,4 @@
-const voca = require('voca');
+import {voca} from 'voca';
 
 export const wordStats = {
   countWords: (text: string): number => {

@@ -1,10 +1,12 @@
+import {Person} from './person';
+import {sportsParser} from './sportsParser';
+
 export class SportsStats {
-  people: String;
+  private people: Array<Person>;
 
   constructor(csv: string) {
     this.people = sportsParser.parseCsv(csv);
   }
-
 
   getPeople() {
     return this.people;
@@ -17,13 +19,13 @@ export class SportsStats {
   getYoungest(discipline = 'all') {
     return this.people
       .filter(person => discipline === 'all' || person.discipline === discipline)
-      .sort((a, b) => a.birthday.getTime() > b.birthday.getTime())
+      .sort((a, b) => a.birthday.getTime() > b.birthday.getTime() ? 1 : -1)
       .map(person => person.firstname + ' ' + person.lastname)
       .pop();
   }
 
   getStatesOccurrences() {
-    const occurrences = {};
+    const occurrences: {[key: string]: number} = {};
     this.people.forEach(person => {
       if (occurrences[person.state]) {
         occurrences[person.state] += 1;
@@ -41,50 +43,5 @@ export class SportsStats {
           return b.count - a.count;
         }
       });
-  }
-}
-
-const sportsParser = {
-  parseCsv: function (lines: string) {
-    return lines.split('\n').map(sportsParser.parseCsvLine);
-  },
-
-  parseCsvLine: function (line: string) {
-    const [firstname, lastname, state, discipline, birthdayStr] = line
-      .split(',').map(sportsParser.cleanWord);
-    const [, year, month, day] = birthdayStr
-      .match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
-    const birthday = new Date(year, month - 1, day);
-    return new Person(firstname, lastname, state, discipline, birthday);
-  },
-
-  cleanWord: function(word: string) {
-    return word
-      .trim()
-      .replace(/^\w/, char => char.toUpperCase());
-  }
-};
-
-interface Composer {
-  firstname: string;
-  lastname: string;
-  state: string;
-  discipline: string;
-  birthday: Composer;
-}
-
-export class Person {
-  firstname: Composer;
-  lastname: Composer ;
-  state: Composer;
-  discipline: Composer;
-  birthday: Composer;
-
-  constructor(firstname: Composer, lastname: Composer, state: Composer, category: Composer, birthday: Composer) {
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.state = state;
-    this.discipline = category;
-    this.birthday = birthday;
   }
 }

@@ -1,6 +1,7 @@
-
+import { error } from 'util';
+import * as Formatter from 'format-currency';
 export function currencyFormatter(amount: number, currency = 'EUR', country = 'at'): string {
-  const Formatter = require('format-currency');
+  // const Formatter = require('format-currency');
   const inspector = typeof(amount);
   if (inspector) {
     if (currency === 'EUR' || currency === 'eur') {
@@ -22,7 +23,6 @@ export function currencyFormatter(amount: number, currency = 'EUR', country = 'a
         return Formatter(amount, options);
       }
     }
-  } else {
-   throw Error;
   }
+   return 'undefined';
 }
