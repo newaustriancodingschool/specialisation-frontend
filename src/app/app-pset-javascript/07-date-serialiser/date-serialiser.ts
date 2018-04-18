@@ -22,7 +22,7 @@ export const dateSerialiser = {
         birthday: anObject.birthday.getTime(),
         deathday: anObject.deathday.getTime()
       });
-    } else if (type == DateType.ISO) {
+    } else {
       return JSON.stringify({
         firstname: anObject.firstname,
         lastname: anObject.lastname,

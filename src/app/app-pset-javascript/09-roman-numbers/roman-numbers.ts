@@ -3,7 +3,7 @@ import { validateConfig } from "@angular/router/src/config";
 export const converter = {
   toArabic: function(roman: string): number {
     let romanArray: Array<string> = roman.split(""),
-        numberKeys: object = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000},
+        numberKeys: { [key: string] : number } = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000},
         arabic: number = 0;
         
     for (let i = romanArray.length-1; i >= 0; i--) {  
@@ -29,4 +29,4 @@ export const converter = {
     }
     return roman;
   }
-}
+};
