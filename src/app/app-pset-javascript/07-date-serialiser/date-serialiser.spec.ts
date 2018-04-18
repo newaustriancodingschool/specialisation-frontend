@@ -23,7 +23,7 @@ describe('07 - Date Serialser and Deserialiser to send and ' +
       birthplace: 'Rohrau'
     };
 
-    expect(dateSerialiser.serialise(haydn, DateType.ISO))
+    expect(dateSerialiser.serialise(haydn, DateType.UTC))
       .toEqual('{"firstname":"Joseph","lastname":"Haydn",' +
         '"birthday":"1723-03-31","deathday":"1809-05-31"}');
   });
