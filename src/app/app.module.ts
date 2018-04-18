@@ -11,9 +11,10 @@ import {RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
