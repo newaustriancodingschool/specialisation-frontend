@@ -1,6 +1,8 @@
 import { OnInit, Component } from '@angular/core';
 import * as moment from 'moment';
 import { datediff } from '../03-datediff/datediff';
+import { ServiceDiffDateService } from '../services/service-diff-date.service';
+
 
 interface Data {
     firstDate: string;
@@ -12,11 +14,21 @@ interface Data {
     styleUrls: ['./page-date-diff.scss']
 })
 export class PageDateDiffComponent implements OnInit {
+
+  calculate(){
+    this.serviceDiffDateService.calculate(this.data.firstDate,this.data.secondDate);
+    this.result =  this.serviceDiffDateService.calculate(this.data.firstDate,this.data.secondDate);
+  }
+
+  constructor(private serviceDiffDateService : ServiceDiffDateService){
+    
+  }
+
   data: Data = {
     firstDate: '',
     secondDate: ''
   };
-  result: number;
+  result = 0;
 
   ngOnInit() {
     this.data.firstDate = moment().format('YYYY-MM-DD');
@@ -25,10 +37,5 @@ export class PageDateDiffComponent implements OnInit {
       .format('YYYY-MM-DD');
   }
 
-  calculate() {
-    this.result = datediff(
-        moment(this.data.firstDate).toDate(),
-        moment(this.data.secondDate).toDate()
-    );
-  }
+
 }

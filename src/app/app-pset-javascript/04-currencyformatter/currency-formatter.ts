@@ -1,5 +1,6 @@
 // var currency = require("currency.js");
-var currency_value = require("currency-formatter");
+//var currency_value = require("currency-formatter");
+import * as currency_value from "currency-formatter";
 
 // yarn add currency.js
 
