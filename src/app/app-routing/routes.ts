@@ -4,6 +4,7 @@ import {Page1Component} from '../app-pset-htmlandcss/page1/page1.component';
 import { PageDateDiffComponent } from '../app-pset-javascript/page-date-diff/page-date-diff.component';
 import { Picture1Component } from '../app-pset-htmlPictues/picture1/picture1.component';
 import { Picture2Component } from '../app-pset-htmlPictues/picture2/picture2.component';
+import { PageTest } from '../app-pset-javascript/page-test/page-test';
 
 export const routes = [
   {path: 'page1', component: Page1Component},
@@ -11,5 +12,6 @@ export const routes = [
   {path: 'page3', component: Page3Component},
   {path: 'pic1', component: Picture1Component},
   {path: 'pic2', component: Picture2Component},
-  {path: 'date-diff-calculator', component: PageDateDiffComponent}
+  {path: 'date-diff-calculator', component: PageDateDiffComponent},
+  {path: 'test', component: PageTest}
 ];

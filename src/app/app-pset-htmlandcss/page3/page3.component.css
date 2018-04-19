@@ -3,17 +3,18 @@
     height: 10px;
     padding: 10px
   }
-  .box1 {
+
+.box1 {
     display: block;
     padding: 10px;
     margin-bottom: 10px;
-
 }
 
 .box2 {
     display: block;
     padding: 10px;
 }
+
 .box3 {
     display: block;
     padding: 5px;

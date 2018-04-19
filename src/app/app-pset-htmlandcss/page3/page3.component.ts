@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from "moment"; 
+import { element } from 'protractor';
 //import {dateformatter} from './02-dateformatter/dateformatter';
 
 
@@ -15,27 +16,32 @@ export class Page3Component implements OnInit {
     date: null,
     country: null
   };
-  result: string;
+  result: string = 'The differenc';
+  selectedCountry:string='at';
 
   ngOnInit() {}
   
   dateFormatter(date: Date, country: string):void {
   //'01.02.2017 12:05'
-    if (country === 'at') {
-        this.result = moment(date).format('DD.MM.YYYY hh:mm')
+    if (this.selectedCountry === 'at') {
+        this.result = moment(date).format('DD.MM.YYYY ')
     }
   //'01/02/2017 03:12 p.m.'
-    else if (country === 'uk'){
-        this.result = moment(date).format('DD/MM/YYYY hh:mm ') + 'p.m.' ;     
+    else if (this.selectedCountry === 'uk'){
+        this.result = moment(date).format('DD/MM/YYYY ')  ;     
     }
   //05/30/2017 06:45 a.m.    
-    else if (country === 'us'){
-        this.result = moment(date).format('MM/DD/YYYY hh:mm ')  + 'a.m.' ;  
+    else if (this.selectedCountry === 'us'){
+        this.result = moment(date).format('MM/DD/YYYY ')   ;  
     }
     else {
       this.result ="there some error";
       //  throw Error ;
     } 
+}
+
+select (element: any ){
+this.selectedCountry = element.target.value ;
 }
   
 

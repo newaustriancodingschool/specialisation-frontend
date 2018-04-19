@@ -5,24 +5,31 @@ body {
 }
 .left {
 	text-align: left;
-	width: 30%;
+	width: 20%;
 	float: left;	
 	background-color:#bbb;
 	height: 700px;
 	background: #fc4a1a;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to bottom, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to bottom, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
- 	text-align: justify;
+    text-align: justify;
+   
+    border-right-style: solid ;
+    box-sizing: border-box;
 }
 .right {
+    
+    // border-width: 2px 10px 4px 20px;
 	text-align: right;
-	width: 70%;
+	width: 80%;
 	height: 700px;
 	float: right;
 	background: #fc4a1a;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to top, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to top, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
- 
+    border-left: .5px;
+    margin-bottom: 20px;
+    
 }
 .row {
 	height: 500px;
@@ -30,8 +37,10 @@ body {
 .right-text {
 	margin: auto;
 	margin-top: 40px;
-	text-align: center;
+    text-align: center;
+    
 }
+
 .left-text {
 	margin: auto;
 	margin-top: 40px;
@@ -129,14 +138,6 @@ li{
     border-style: inset;
     border-width: 1px;
 } 
-// for the vertical line 
-.vl{
-    border-left: 6px solid  rgb(8, 8, 8);
-    height: 600px;
-    border-width: 1px;
-    width: 4px;
-   
-}
 
 .top-left {
     text-align: left;

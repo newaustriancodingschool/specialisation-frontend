@@ -15,3 +15,11 @@
     padding: 10px;
 }
 
+.left{
+    float:right;
+    width:-50px;
+    margin:0 auto;
+}
+button{
+    padding: 5px;
+}

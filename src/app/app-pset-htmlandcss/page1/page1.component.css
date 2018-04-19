@@ -1,35 +1,33 @@
 div.wrapper {
   color: rgb(30, 163, 52);
-  /* background: url("https://d26s1dosjyldof.cloudfront.net/experience/wp-content/uploads/2016/09/angularjs-features-1.png")rgba(177, 255, 153, 0.76); */
-  /* background-position: center; */
-  
-  height: 350px ;
-  
+  height: 350px ; 
 }
-/*  
-div.inupt{
-background: url("http://img.sytyson.com/thumb/800x600/2/84/284fe3993173adeefa00774d8ae56c42.jpg")rgba(177, 255, 153, 0.76);
-background-repeat: no-repeat;
-background-size: cover
-} */
+
 h2 {
   color: rgba(255, 0, 0, 0.473);
   font-size: 80px;
-   font-family: 'Vast Shadow', cursive;  
+  font-family: 'Vast Shadow', cursive;  
   /* font-family: 'Rye', cursive;  */
   font-weight: lighter;
-}
-::placeholder { 
-  color: #00f7ff;
   opacity: 4; 
+  color: yellow;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-.resizedTextbox {
-  width: 100px;
-  height: 20px;
-  padding: 6px;
-  margin: 10px;
-  background-color: rgb(188, 175, 60);
 
+::placeholder { 
+  color: #1d2020;
+  padding-left: 25px;
+}
+
+
+.resizedTextbox {
+  width: 150px;
+  height: 15px;
+  padding: 16px;
+  background-color: rgba(15, 253, 174, 0.61);
+  margin: 18px;
+  padding-right: 18px;
+  opacity: 10px;
 }
 .button {
   /* display: block; */
