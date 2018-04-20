@@ -20,9 +20,7 @@ export class PageDateDiffComponent implements OnInit {
     this.result =  this.serviceDiffDateService.calculate(this.data.firstDate,this.data.secondDate);
   }
 
-  constructor(private serviceDiffDateService : ServiceDiffDateService){
-    
-  }
+  constructor(private serviceDiffDateService : ServiceDiffDateService){  }
 
   data: Data = {
     firstDate: '',

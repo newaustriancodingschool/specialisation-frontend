@@ -1,7 +1,18 @@
+<div class="container">
+  <h1>Regex Email</h1>
+  <p>Dear User, Enter your Email Address </p>
+  
+  <form>
+      Email : <input type="text" name="email" [(ngModel)]="data.email">
 
-<br>
-<div style="text-align:center">
-<h2> 
-  page-regex-email works!
-</h2>
-</div>
+      <br><br>
+      <button (click)="makeResult()"> Check Email </button>
+  </form>
+  
+  <br><br>
+
+  <div class="result">The result is <span style="color:crimson">{{ result }}</span></div>
+
+  <br><br>
+  
+  </div>

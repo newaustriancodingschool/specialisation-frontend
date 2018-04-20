@@ -1,6 +1,18 @@
-<br>
-<div style="text-align:center">
-<h2> 
-  page-date-formatter works!
-</h2>
-</div>
+<div class="container">
+  <h1>Date Formatter</h1>
+  <p>Dear User, Enter a Date with Country to give you the appropriate format .</p>
+  
+  <form>
+      Country : <input type="text" name="country" [(ngModel)]="data.country">
+      Date: <input type="datetime-local" name="date" [(ngModel)]="data.date">
+      <br><br>
+      <button (click)="ngOnInit()"> Check </button>
+  </form>
+  
+  <br><br>
+
+  <div class="result">The result is {{ result }}</div>
+
+  <br><br>
+  
+  </div>

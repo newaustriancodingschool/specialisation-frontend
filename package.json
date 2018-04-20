@@ -25,9 +25,11 @@
     "core-js": "^2.4.1",
     "currency-formatter": "^1.4.2",
     "currency.js": "^1.1.1",
+    "email-validator": "^2.0.3",
     "moment": "^2.22.0",
     "numeral": "^2.0.6",
     "rxjs": "^5.5.6",
+    "validator": "^9.4.1",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {

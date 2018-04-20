@@ -1,14 +1,21 @@
-export function isValidEMail(email: string): boolean {
-  var regular_expression_to_validate_email = /\S+@\S+\.\S+/;
+import * as EmailValidator from 'email-validator';
 
+export function isValidEMail(email: string): boolean {
+var regular_expression_to_validate_email = /\S+@\S+\.\S+/;
+
+
+if (EmailValidator.validate(email)) 
+  return true;
+else
+  return false;
+
+  /*
   if (email.includes("somebody@somewhere.com")) return true;
   else if (email.includes("+")) return true;
-  else if (
-    email.includes("\\") &&
-    regular_expression_to_validate_email.test(email)
-  )
+  else if (email.includes("")) return true;
+  else if (email.includes("\\") && regular_expression_to_validate_email.test(email))
     return true;
   else if (!regular_expression_to_validate_email.test(email)) return false;
   else return false;
-  // return true;
+  */
 }

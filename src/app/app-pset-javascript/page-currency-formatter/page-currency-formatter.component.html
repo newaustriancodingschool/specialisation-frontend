@@ -1,6 +1,19 @@
-<br>
-<div style="text-align:center">
-<h2> 
-  page-currency-formatter works!
-</h2>
-</div>
+<div class="container">
+  <h1>Currency Formatter</h1>
+  <p>Dear User, you can know the Currency Format for your inputing number of amount.</p>
+  
+  <form>
+      Country : <input type="text" name="country" [(ngModel)]="data.country">
+      Currency: <input type="text" name="currency" [(ngModel)]="data.currency">
+      Amount : <input type="number" name="amount" [(ngModel)]="data.amount">
+      <br><br>
+      <button (click)="makeResult()"> Check </button>
+  </form>
+  
+  <br><br>
+
+  <div class="result">The result is {{ result }}</div>
+
+  <br><br>
+  
+  </div>
