@@ -1,7 +1,33 @@
 
-<br>
-<div style="text-align:center">
-<h2>page-roman-numbers works!</h2>
-</div>
+<div class="container">
+        <h1>Roman Numbers</h1>
+        <p>Dear User, Enter a Numbers</p>
+        
+        <form>
 
-
+            Number : <input type="text" name="number" [(ngModel)]="data.number">
+            <br>
+            Select one of the operations
+            <select name="option" [(ngModel)]="data.option">
+                <option value="0">Choose one of Menu</option>
+                <option value="1">Arabic</option>
+                <option value="2">Roman</option> 
+            </select>
+      
+      
+            
+            <br><br>
+            <button (click)="ngOnInit()"> Check </button>
+        </form>
+        
+        <br><br>
+      
+      
+        <div class="result">
+            The result is <span style="color: #ff0">{{ result }}</span>
+        </div>
+      
+      
+        <br><br>
+        
+        </div>

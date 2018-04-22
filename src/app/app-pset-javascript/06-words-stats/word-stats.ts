@@ -1,3 +1,9 @@
+//const countWords = require('count-words-occurrence');
+// import * as count from 'word-count';
+//import * as freq from 'freq';
+// require('typescript-require');
+// let freq = require('freq');
+
 export const wordStats = {
   countWords: (text: string): number => {
     return getWordCount(text);
@@ -6,6 +12,7 @@ export const wordStats = {
     return text.split("i").length;
   },
   occurrencesList: (text: string): any => {
+    
     let text2 = "";
     let arr_test = [];
     let arr_names = [];
@@ -19,9 +26,6 @@ export const wordStats = {
       text2 += words[i].toLowerCase();
       text2 += " ";
     }
-
-    // console.log("Text2: " + text2);
-    // console.log("**************************");
 
     let uniqueListIndex = text2
       .split(" ")
@@ -50,14 +54,11 @@ export const wordStats = {
     return arr_test;
     // return 0;
   }
-  // occurrences: (word: string, text: string): number => {
-  //   return 0;
-  // },
-  // occurrencesList: (text: string): any => {
-  // }
+
+
 };
 
-export function getWordCount(t: any) {
+export function getWordCount(t: any):number {
   var regEx = /([^\u0000-\u007F]|\w)+/g;
   return t.match(regEx).length;
 }

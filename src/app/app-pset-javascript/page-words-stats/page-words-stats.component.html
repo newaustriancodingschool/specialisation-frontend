@@ -1,7 +1,44 @@
 
-<br>
-<div style="text-align:center">
-<h2> 
-  page-words-stats works!
-</h2>
-</div>
+<div class="container">
+  <h1>Words Stats</h1>
+  <p>Dear User, Enter a Text.</p>
+  
+  <form>
+    <!--
+      Country : <input type="text" name="country" [(ngModel)]="data.country">
+    -->  
+      
+      <textarea name="text" rows="2" cols="60" [(ngModel)]="data.text"> 
+      </textarea>
+      <br>
+      Word : <input type="text" name="word" [(ngModel)]="data.word">
+      <br>
+      Select one of the operations
+      <select name="option" [(ngModel)]="data.option">
+          <option value="0">Choose one of Menu</option>
+          <option value="1">countWords</option>
+          <option value="2">occurrences</option>
+          <option value="3">occurrencesList</option>  
+      </select>
+
+
+      
+      <br><br>
+      <button (click)="ngOnInit()"> Check </button>
+  </form>
+  
+  <br><br>
+
+
+  <div class="result" *ngFor="let r of result" ng-if="data.option==3">
+      The result is {{  " Term: " + r.term + ", Count: " + r.count }}
+   </div>
+
+  <div class="result" ng-else>
+      The result is {{ result }}
+  </div>
+
+
+  <br><br>
+  
+  </div>

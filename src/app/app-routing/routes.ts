@@ -26,7 +26,9 @@ export const routes = [
   {path: 'tic-tac-toe', component: TicTacToeComponent}, 
   {path: 'roman-numbers', component: PageRomanNumbersComponent}, 
   {path: 'roman-numbers', component: PageRomanNumbersComponent},     
-  {path: 'sports-stats', component: PageSportsStatsComponent}
+  {path: 'sports-stats', component: PageSportsStatsComponent},
+  {path: 'words-stats', component: PageWordsStatsComponent}
+
 
   
 

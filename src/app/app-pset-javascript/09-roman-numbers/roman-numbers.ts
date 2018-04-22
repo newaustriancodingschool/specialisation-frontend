@@ -1,50 +1,45 @@
+//import * as toRoman from 'number-toroman';
+//import * as toRoman from '../assets/js/number-toroman';
+//import { toRoman } from 'number-toroman';
+
 export const converter = {
-  toArabic: function(roman: any): number {
-    let roman_number_checker: Array<string> = [
-      "I",
-      "IV",
-      "XI",
-      "L",
-      "MMXVIII",
-      "CMXCIX"
-    ];
-    let arabic_number: Array<number> = [1, 4, 11, 50, 2018, 999];
+  toArabic: function(roman: any): number {   
+   return toAr(roman);
 
-    let counter: number = 0;
-
-    while (roman_number_checker[counter] != roman) {
-      counter++;
-      // console.log(counter);
-    }
-
-    return arabic_number[counter];
   },
+  toRoman: function(arabic: number): string {   
+  return toRo(arabic);
 
-  toRoman: function(arabic: any): string {
-    let arabic_number_checker: Array<number> = [1, 4, 11, 50, 2018, 999];
-    let roman_number: Array<string> = [
-      "I",
-      "IV",
-      "XI",
-      "L",
-      "MMXVIII",
-      "CMXCIX"
-    ];
-
-    let counter: number = 0;
-
-    while (arabic_number_checker[counter] != arabic) {
-      counter++;
-      // console.log(counter);
-    }
-
-    return roman_number[counter];
   }
   
-  // toArabic: function(roman: string): number {
-  //   return 0;
-  // },
-  // toRoman: function(arabic: number): string {
-  //   return '';
-  // }
 };
+
+export function toRo(num:number):any {  
+  let result:string = '';
+  let decimal = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  let roman = ["M", "CM","D","CD","C", "XC", "L", "XL", "X","IX","V","IV","I"];
+  for (var i = 0;i<=decimal.length;i++) {
+    while ((num % decimal[i]) < num) {     
+      result += roman[i];
+      //console.log(roman[i]);
+      num -= decimal[i];
+    }
+  }
+  return result;
+}
+
+export function toAr(str:string):any {  
+  let result =0;
+  // the result is now a number, not a string
+  let decimal = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  let roman = ["M", "CM","D","CD","C", "XC", "L", "XL", "X","IX","V","IV","I"];
+  for (var i = 0;i<=decimal.length;i++) {
+    while (String(str).indexOf(roman[i]) === 0){
+      result += decimal[i];
+      //console.log(result);
+      str = str.replace(roman[i],'');
+    }
+  }
+  return result;
+}
+
