@@ -1,0 +1,12 @@
+<input type="text"  name='text' [(ngModel)]="valuetext" placeholder="Enter the text" autofocus>
+
+
+<div>
+    <button (click)="calc()">Calculate</button>
+  </div>
+  
+  <ul class="models">
+      <li *ngFor="let model of arrObj" >
+      {{model}}
+      </li>
+    </ul>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-page4',
@@ -7,64 +8,72 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class Page4Component implements OnInit {
-  imgUrl: string = 'https://wallpaperfm.com/img/original/4/1/0/4833.jpg';
+  // imgUrl: string = 'https://wallpaperfm.com/img/original/4/1/0/4833.jpg';
   data: any ={
     amount:null,
     currency:null,
     country:null
   };
-  result: number;
-
+  result: string='0';
+  eurSymbole = '€';
+  gpbSymbole = '£';
+  usaSymbole = '$';
+  currSymbole = '';
+  co ='';
+  cu='';
   ngOnInit() {}
 
-  currencyFormatter(amount: string | number, currency: string = 'EUR', country: string = 'at') {
+  currencyFormatter(amount: string | number) :void{
 
-  let currencySymbol: string = '',
-  countryCode: string = '';
-  currency = currency.toUpperCase();
-  country = country.toLowerCase();
 
   if (typeof amount === 'string') {
     throw Error;
   }
-  if (currency === 'EUR' && country === 'at') {
-    return (
-      '€' +
-      ' ' +
-      amount.toLocaleString('de-DE', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })
-    );
-  } else if (currency === 'EUR' && country === 'uk') {
-    return (
-      '€' +
-      ' ' +
-      amount.toLocaleString('en-UK', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })
-    );
-  } else if (currency === 'USD' && country === 'at') {
-    return (
-      '$' +
-      ' ' +
-      amount.toLocaleString('de-DE', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })
-    );
-  } else if (currency === 'GPB' && country === 'at') {
-    return (
-      '£' +
-      ' ' +
-      amount.toLocaleString('en-UK', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })
-    );
+  if (this.cu == 'EUR'){
+     this.currSymbole = this.eurSymbole; 
+  }else if (this.cu=='USD'){
+    this.currSymbole = this.usaSymbole;
+  } else if (this.cu=='GPB'){
+    this.currSymbole = this.gpbSymbole;
   }
+  
+
+  if (this.co == 'at'){
+    this.result = 
+    this.currSymbole +
+    ' ' +
+        amount.toLocaleString('de-DE', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2});
+  }
+  else if (this.co == 'uk'){
+    this.result = 
+    this.currSymbole +
+    ' ' +
+        amount.toLocaleString('en-UK', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2});
+
+  }
+  else if (this.co == 'us'){
+    this.result = 
+    this.currSymbole +
+    ' ' +
+        amount.toLocaleString('de-DE', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2});
+
   }
 }
 
 
+selectCountry (element: any ){
+  this.co = element.target.value ;
+  }
+ 
+  
+  selectCurrency (element: any ){
+  this.cu = element.target.value ;
+  }
+
+}

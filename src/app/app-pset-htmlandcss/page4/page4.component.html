@@ -1,15 +1,23 @@
-<img src="{{imgUrl}}" alt="when image is broken link show me this text" title="Text will show up on hover">
+<!-- <img src="{{imgUrl}}" alt="when image is broken link show me this text" title="Text will show up on hover"> -->
 
 <div align="center" class=" wrapper">
 <form>
 <input type="number" name='theAmount' [(ngModel)]="data.amount" placeholder="Enter the amount" autofocus>
 <div>
-    <select class="box3" name='theCountry' (change)="select($event)">
+    <select class="box3" name='theCountry' (change)="selectCountry($event)">
         <option value="at">AT</option>
         <option value="uk">UK</option>
         <option value="us">US</option>
     </select>
   </div>
+  <div>
+        <select class="box4" name='theCurrency' (change)="selectCurrency($event)">
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+            <option value="GPB">GPB</option>
+        </select>
+      </div>
+    
   <button (click)="currencyFormatter(data.amount)">Convert</button>
   <div class = "box2"><input type="text" [value]="result" class="resizedTextbox"></div>
 </form>
