@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from "moment"; 
 import { element } from 'protractor';
-//import {dateformatter} from './02-dateformatter/dateformatter';
-
-
 
 @Component({
   selector: 'app-page3',
   templateUrl: './page3.component.html',
   styleUrls: ['./page3.component.css']
 })
+
 export class Page3Component implements OnInit {
   imgUrl: string = 'http://www.nationsonline.org/gallery/World/World-map-country-codes.jpg';
   data: any = {

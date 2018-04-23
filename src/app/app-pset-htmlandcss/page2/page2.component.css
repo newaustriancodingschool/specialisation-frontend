@@ -16,10 +16,16 @@
 }
 
 .left{
-    float:right;
+    float:center;
     width:-50px;
     margin:0 auto;
 }
 button{
     padding: 5px;
+}
+p.ex1 {
+    border: 1px solid black;
+    outline-style: solid;
+    outline-color: red;
+    outline-width: thin;
 }

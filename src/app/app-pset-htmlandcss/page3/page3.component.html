@@ -2,17 +2,16 @@
 
 <div  align="center" class ="wrapper" > 
 <form>
-
-<div class = "box1">
-  <input type="date"  value = '2018, 0, 1' name='theDate' [(ngModel)]="data.date" placeholder="Enter the date" autofocus class="resizedTextbox">
-</div>
-<div>
-<select class="box3" name='theCountry' (change)="select($event)">
-    <option value="at">AT</option>
-    <option value="uk">UK</option>
-    <option value="us">US</option>
-</select>
-</div>
+  <div class = "box1">
+    <input type="date"  value = '2018, 0, 1' name='theDate' [(ngModel)]="data.date" placeholder="Enter the date" autofocus class="resizedTextbox">
+  </div>
+    <div>
+      <select class="box3" name='theCountry' (change)="select($event)">
+          <option value="at">AT</option>
+          <option value="uk">UK</option>
+          <option value="us">US</option>
+      </select>
+    </div>
 <div>
   <button (click)="dateFormatter(data.date)">Calculate</button>
 </div>
