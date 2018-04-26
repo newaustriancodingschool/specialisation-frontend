@@ -25,8 +25,8 @@ export function currencyFormatter(amount: string | number, currency: string = 'E
       currencySymbol = '£';
   }
 
-  if (typeof(amount) == 'string') {
-    throw null
+  if (typeof(amount) === 'string') {
+    throw null;
   }
   return currencySymbol + ' ' + amount.toLocaleString(countryCode, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 }
